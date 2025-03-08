@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧不動產估價系統</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hidden {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        .nav-link.active {
+            color: #3B82F6;
+            border-bottom: 2px solid #3B82F6;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 導航欄 -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fas fa-home text-blue-500 text-2xl mr-2"></i>
+                    <span class="text-xl font-bold text-gray-800">智慧不動產估價系統</span>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="nav-link active px-3 py-2 text-gray-700 hover:text-blue-500" data-page="home">首頁</a>
+                    <a href="#" class="nav-link px-3 py-2 text-gray-700 hover:text-blue-500" data-page="estimate">估價</a>
+                    <a href="#" class="nav-link px-3 py-2 text-gray-700 hover:text-blue-500" data-page="history">歷史記錄</a>
+                    <a href="#" class="nav-link px-3 py-2 text-gray-700 hover:text-blue-500" data-page="about">關於我們</a>
+                    <a href="#" class="nav-link px-3 py-2 text-gray-700 hover:text-blue-500" data-page="profile">個人中心</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要內容區域 -->
+    <main class="pt-16">
+        <!-- 首頁 -->
+        <div class="page active" id="home">
+            <div class="max-w-7xl mx-auto px-4 py-8">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-gray-900 mb-4">智慧不動產估價系統</h1>
+                    <p class="text-xl text-gray-600">快速、準確的不動產估價服務</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <i class="fas fa-calculator text-blue-500 text-3xl mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">快速估價</h3>
+                        <p class="text-gray-600">輸入基本資訊，立即獲得初步估價結果</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <i class="fas fa-chart-line text-blue-500 text-3xl mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">市場分析</h3>
+                        <p class="text-gray-600">深入分析市場趨勢和價格走勢</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <i class="fas fa-file-alt text-blue-500 text-3xl mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">專業報告</h3>
+                        <p class="text-gray-600">生成詳細的估價報告和建議</p>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <button class="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors" onclick="showPage('estimate')">
+                        開始估價
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 估價頁面 -->
+        <div class="page" id="estimate">
+            <div class="max-w-3xl mx-auto px-4 py-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">不動產估價</h2>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <form id="estimateForm" class="space-y-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2">不動產類型</label>
+                            <select class="w-full p-2 border rounded-lg">
+                                <option>住宅</option>
+                                <option>商業</option>
+                                <option>工業</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 mb-2">所在區域</label>
+                            <input type="text" class="w-full p-2 border rounded-lg" placeholder="請輸入地址">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 mb-2">建物面積（平方公尺）</label>
+                            <input type="number" class="w-full p-2 border rounded-lg">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 mb-2">屋齡（年）</label>
+                            <input type="number" class="w-full p-2 border rounded-lg">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 mb-2">樓層</label>
+                            <input type="number" class="w-full p-2 border rounded-lg">
+                        </div>
+
+                        <button type="submit" class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-colors">
+                            開始估價
+                        </button>
+                    </form>
+                </div>
+
+                <div id="estimateResult" class="mt-8 bg-white p-6 rounded-lg shadow-md hidden">
+                    <h3 class="text-xl font-semibold mb-4">估價結果</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-gray-600">預估價格</p>
+                            <p class="text-2xl font-bold text-blue-500">NT$ 15,000,000</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-600">每坪單價</p>
+                            <p class="text-2xl font-bold text-blue-500">NT$ 500,000</p>
+                        </div>
+                    </div>
+                    <button class="mt-6 bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                        下載詳細報告
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 歷史記錄頁面 -->
+        <div class="page" id="history">
+            <div class="max-w-7xl mx-auto px-4 py-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">估價歷史記錄</h2>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <table class="min-w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">估價日期</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">不動產類型</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">預估價格</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">2024-03-20</td>
+                                <td class="px-6 py-4 whitespace-nowrap">住宅</td>
+                                <td class="px-6 py-4 whitespace-nowrap">NT$ 15,000,000</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <button class="text-blue-500 hover:text-blue-700">查看詳情</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 個人中心頁面 -->
+        <div class="page" id="profile">
+            <div class="max-w-3xl mx-auto px-4 py-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">個人中心</h2>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-6">
+                        <div class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-3xl text-gray-500"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-semibold">王小明</h3>
+                            <p class="text-gray-600">會員編號：123456</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 mb-2">電子郵件</label>
+                            <input type="email" class="w-full p-2 border rounded-lg" value="example@email.com">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 mb-2">手機號碼</label>
+                            <input type="tel" class="w-full p-2 border rounded-lg" value="0912-345-678">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 mb-2">會員等級</label>
+                            <p class="text-blue-500 font-semibold">黃金會員</p>
+                        </div>
+
+                        <button class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-colors">
+                            更新資料
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 關於我們頁面 -->
+        <div class="page" id="about">
+            <div class="max-w-7xl mx-auto px-4 py-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">關於我們</h2>
+                    <p class="text-xl text-gray-600">專業的不動產估價服務，為您提供最準確的市場價值評估</p>
+                </div>
+
+                <!-- 公司介紹 -->
+                <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">公司介紹</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        我們是一家專業的不動產估價科技公司，擁有超過10年的市場經驗。我們結合傳統估價專業知識與現代科技，
+                        為客戶提供快速、準確、專業的不動產估價服務。我們的團隊由資深估價師、數據分析師和軟體工程師組成，
+                        致力於為您提供最優質的服務體驗。
+                    </p>
+                </div>
+
+                <!-- 服務特色 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <i class="fas fa-shield-alt text-blue-500 text-3xl mb-4"></i>
+                        <h4 class="text-xl font-semibold mb-2">專業可靠</h4>
+                        <p class="text-gray-600">擁有專業估價師團隊，確保估價結果的準確性和可靠性</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <i class="fas fa-bolt text-blue-500 text-3xl mb-4"></i>
+                        <h4 class="text-xl font-semibold mb-2">快速便捷</h4>
+                        <p class="text-gray-600">運用AI技術，提供即時估價服務，節省您的寶貴時間</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <i class="fas fa-chart-bar text-blue-500 text-3xl mb-4"></i>
+                        <h4 class="text-xl font-semibold mb-2">數據分析</h4>
+                        <p class="text-gray-600">深入分析市場數據，提供全面的市場趨勢報告</p>
+                    </div>
+                </div>
+
+                <!-- 使用流程 -->
+                <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">使用流程</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-blue-500 font-bold">1</span>
+                            </div>
+                            <h4 class="font-semibold mb-2">輸入資訊</h4>
+                            <p class="text-gray-600 text-sm">填寫不動產基本資料</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-blue-500 font-bold">2</span>
+                            </div>
+                            <h4 class="font-semibold mb-2">系統分析</h4>
+                            <p class="text-gray-600 text-sm">AI智能分析市場數據</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-blue-500 font-bold">3</span>
+                            </div>
+                            <h4 class="font-semibold mb-2">專業評估</h4>
+                            <p class="text-gray-600 text-sm">估價師審核確認</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-blue-500 font-bold">4</span>
+                            </div>
+                            <h4 class="font-semibold mb-2">獲取報告</h4>
+                            <p class="text-gray-600 text-sm">下載詳細估價報告</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 聯絡我們 -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">聯絡我們</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-semibold mb-4">聯絡資訊</h4>
+                            <div class="space-y-3">
+                                <p class="flex items-center text-gray-600">
+                                    <i class="fas fa-phone mr-3 text-blue-500"></i>
+                                    0800-123-456
+                                </p>
+                                <p class="flex items-center text-gray-600">
+                                    <i class="fas fa-envelope mr-3 text-blue-500"></i>
+                                    service@example.com
+                                </p>
+                                <p class="flex items-center text-gray-600">
+                                    <i class="fas fa-map-marker-alt mr-3 text-blue-500"></i>
+                                    台北市信義區信義路五段5號
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-4">營業時間</h4>
+                            <div class="space-y-2 text-gray-600">
+                                <p>週一至週五：09:00 - 18:00</p>
+                                <p>週六：10:00 - 16:00</p>
+                                <p>週日：休息</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // 頁面切換功能
+        function showPage(pageId) {
+            // 隱藏所有頁面
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // 顯示目標頁面
+            document.getElementById(pageId).classList.add('active');
+            
+            // 更新導航欄狀態
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`[data-page="${pageId}"]`).classList.add('active');
+        }
+
+        // 導航欄點擊事件
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = e.target.getAttribute('data-page');
+                showPage(pageId);
+            });
+        });
+
+        // 估價表單提交事件
+        document.getElementById('estimateForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.getElementById('estimateResult').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html> 
