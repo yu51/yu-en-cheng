@@ -582,6 +582,74 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .experience-item, .education-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(99, 110, 114, 0.1);
+        }
+
+        .experience-item:last-child, .education-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .experience-header, .education-header {
+            margin-bottom: 1rem;
+        }
+
+        .experience-title, .education-degree {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-company, .education-school {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+        }
+
+        .experience-date, .education-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .experience-details {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-details li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+
+        .experience-details li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .education-details {
+            color: var(--gray);
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .experience-title, .education-degree {
+                font-size: 1.1rem;
+            }
+
+            .experience-details li {
+                font-size: 0.95rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -625,9 +693,6 @@
                 <a href="mailto:chengyuen51@gmail.com">
                     <i class="fas fa-envelope"></i> Email
                 </a>
-                <a href="https://reurl.cc/362loM" target="_blank">
-                    <i class="fas fa-briefcase"></i> Portfolio
-                </a>
                 <a href="https://t.me/yucheng0501">
                     <i class="fab fa-telegram"></i> Telegram
                 </a>
@@ -635,11 +700,57 @@
 
             <h2>Professional Summary</h2>
             <ul class="qualification-summary">
-                <li>Results-driven professional with 6+ years of experience as a Product Manager, Data Scientist, and Project Manager, excelling in product development and cross-functional leadership within software startup environments.</li>
+                <li>Results-driven and highly motivated professional with 6+ years of experience as a Product Manager, Data Scientist, and Project Manager, excelling in product development and cross-functional leadership within software startup environments.</li>
                 <li>Utilizing Python and MS SQL for data cleaning, analysis, managing datasets of over 500,000 records, optimizing machine learning models, and developing APIs to deliver impactful solutions.</li>
                 <li>Enhancing brand awareness through Facebook and Google Ads campaigns, while strengthening customer relationships through tailored EDM strategies, achieving open rates of 30-40%.</li>
-                <li>Strong communicator with dual degrees and experience in engineering and business, skilled at aligning product strategy with user needs and engaging stakeholders.</li>
+                <li>Strong communicator with dual degrees and experience in engineering and business, skilled at aligning product strategy with user needs and engaging stakeholders, native in Chinese and advanced in English.</li>
             </ul>
+
+            <h2>Work Experience</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title">Product Manager</div>
+                    <div class="experience-company">Anfu Solutions Inc.</div>
+                    <div class="experience-date">02/2024 – Present</div>
+                </div>
+                <ul class="experience-details">
+                    <li>Led the redesign of the mobile website by collaborating with IT and UI/UX teams, combining agile development practices with ClickUp to resolve 200+ website bugs and streamline processes, achieving a 50% reduction in registration time.</li>
+                    <li>Performed competitive analysis and addressed user pain points, utilizing internal database insights and company strengths to design new product features, including drafting PRDs and wireframes, which led to a 30% increase in user engagement time.</li>
+                    <li>Launched the website's payment system, including designing membership tiers, subscription plans, and payment workflows, while ensuring legal compliance and customizing the solution to meet user needs.</li>
+                    <li>Developed EDM campaigns with over 1,000 subscribers and sustained a 30-40% open rate.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title">Senior Data Scientist｜Project Manager</div>
+                    <div class="experience-company">Anfu Solutions Inc.</div>
+                    <div class="experience-date">08/2018 – 02/2024</div>
+                </div>
+                <ul class="experience-details">
+                    <li>Applied Python and MS SQL to integrate, clean, and analyze datasets of over 500,000 records, developed and tested APIs, and translated business logic into code, owning more than 50% of the project's core functionalities.</li>
+                    <li>Independently trained and optimized neural network valuation models, reducing mean absolute percentage error by 3-5% and enhancing overall model performance.</li>
+                    <li>Managed government system projects by gathering requirements, coordinating with IT teams, and ensuring 100% on-time delivery.</li>
+                </ul>
+            </div>
+
+            <h2>Educational Background</h2>
+            <div class="education-item">
+                <div class="education-header">
+                    <div class="education-degree">MSc in Business Administration</div>
+                    <div class="education-school">TIAS Bus. School, the Netherlands</div>
+                    <div class="education-date">2016-2017</div>
+                </div>
+                <div class="education-details">Specialized in Business Analytics</div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-header">
+                    <div class="education-degree">Master of Industrial Engineering and Management</div>
+                    <div class="education-school">National Yang Ming Chiao Tung University, Taiwan</div>
+                    <div class="education-date">2014-2017</div>
+                </div>
+            </div>
 
             <h2>Core Skills</h2>
             <div class="skills">
