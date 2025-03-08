@@ -1,356 +1,863 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>智慧不動產估價系統</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Yu-En Cheng - Product Manager & Data Scientist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .hidden {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #0984E3;
+            --secondary: #00B894;
+            --dark: #2D3436;
+            --light: #f8f9fa;
+            --gray: #636e72;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 0.8rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav .brand {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        nav .brand h1 {
+            font-size: 1.3rem;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        nav .brand h1::after {
             display: none;
         }
-        .active {
-            display: block;
+
+        nav .brand .subtitle {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin: 0;
+            letter-spacing: 0.3px;
         }
-        .page {
+
+        nav ul {
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+            gap: 1.5rem;
+            margin: 0;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+            background-color: rgba(9, 132, 227, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0.6rem 0;
+            }
+
+            nav .container {
+                flex-direction: column;
+                gap: 0.8rem;
+                text-align: center;
+                padding: 0 1rem;
+            }
+
+            nav .brand {
+                align-items: center;
+            }
+
+            nav .brand h1 {
+                font-size: 1.2rem;
+            }
+
+            nav .brand .subtitle {
+                font-size: 0.75rem;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            nav a {
+                padding: 0.3rem 0.6rem;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 2rem;
+        }
+
+        section {
+            background: white;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .qualification-summary li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .qualification-summary li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .skills {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: rgba(9, 132, 227, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3));
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .portfolio-description {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .portfolio-tag {
+            background: rgba(9, 132, 227, 0.1);
+            color: var(--primary);
+            padding: 0.2rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-tag:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .portfolio-link {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255,255,255,0.9);
+            padding: 0.5rem;
+            border-radius: 50%;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-link:hover {
+            transform: rotate(45deg);
+            background: var(--primary);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
             display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            backdrop-filter: blur(5px);
         }
-        .page.active {
-            display: block;
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 2rem;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 1000px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-height: 90vh;
+            overflow-y: auto;
         }
-        .nav-link.active {
-            color: #3B82F6;
-            border-bottom: 2px solid #3B82F6;
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close:hover {
+            color: var(--primary);
+        }
+
+        .project-content h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
+        }
+
+        .project-content p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-content ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .project-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .project-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light);
+        }
+
+        .project-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .project-section {
+            margin-bottom: 2rem;
+        }
+
+        .project-section-title {
+            color: var(--dark);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* Additional Modal Styles */
+        .modal-content {
+            width: 90%;
+            max-width: 1200px;
+            padding: 3rem;
+        }
+
+        .project-content {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .project-section {
+            margin-bottom: 3rem;
+        }
+
+        .project-subsection {
+            margin: 2rem 0;
+        }
+
+        .project-subsection-title {
+            color: var(--primary);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-item {
+            background: rgba(9, 132, 227, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .highlight-box {
+            background: linear-gradient(to right, rgba(9, 132, 227, 0.1), rgba(0, 184, 148, 0.1));
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .recommendation-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .recommendation-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .recommendation-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Additional Styles for Figures */
+        .figure-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .figure-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .figure-image {
+            width: 100%;
+            height: 300px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #eee;
+        }
+
+        .figure-caption {
+            padding: 1rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .figure-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    <!-- 導航欄 -->
-    <nav class="bg-white shadow-lg fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <i class="fas fa-home text-blue-500 text-2xl mr-2"></i>
-                    <span class="text-xl font-bold text-gray-800">智慧不動產估價系統</span>
-                </div>
-                <div class="flex space-x-4">
-                    <a href="#" class="nav-link active px-3 py-2 text-gray-700 hover:text-blue-500" data-page="home">首頁</a>
-                    <a href="#" class="nav-link px-3 py-2 text-gray-700 hover:text-blue-500" data-page="estimate">估價</a>
-                    <a href="#" class="nav-link px-3 py-2 text-gray-700 hover:text-blue-500" data-page="history">歷史記錄</a>
-                    <a href="#" class="nav-link px-3 py-2 text-gray-700 hover:text-blue-500" data-page="about">關於我們</a>
-                    <a href="#" class="nav-link px-3 py-2 text-gray-700 hover:text-blue-500" data-page="profile">個人中心</a>
-                </div>
+<body>
+    <nav>
+        <div class="container">
+            <div class="brand">
+                <h1>YU-EN CHENG</h1>
+                <div class="subtitle">Product Manager | Data Analysis | Marketing Operation</div>
             </div>
+            <ul>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- 主要內容區域 -->
-    <main class="pt-16">
-        <!-- 首頁 -->
-        <div class="page active" id="home">
-            <div class="max-w-7xl mx-auto px-4 py-8">
-                <div class="text-center mb-12">
-                    <h1 class="text-4xl font-bold text-gray-900 mb-4">智慧不動產估價系統</h1>
-                    <p class="text-xl text-gray-600">快速、準確的不動產估價服務</p>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <i class="fas fa-calculator text-blue-500 text-3xl mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">快速估價</h3>
-                        <p class="text-gray-600">輸入基本資訊，立即獲得初步估價結果</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <i class="fas fa-chart-line text-blue-500 text-3xl mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">市場分析</h3>
-                        <p class="text-gray-600">深入分析市場趨勢和價格走勢</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <i class="fas fa-file-alt text-blue-500 text-3xl mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">專業報告</h3>
-                        <p class="text-gray-600">生成詳細的估價報告和建議</p>
-                    </div>
-                </div>
-
-                <div class="mt-12 text-center">
-                    <button class="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors" onclick="showPage('estimate')">
-                        開始估價
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- 估價頁面 -->
-        <div class="page" id="estimate">
-            <div class="max-w-3xl mx-auto px-4 py-8">
-                <h2 class="text-3xl font-bold text-gray-900 mb-8">不動產估價</h2>
-                
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <form id="estimateForm" class="space-y-6">
-                        <div>
-                            <label class="block text-gray-700 mb-2">不動產類型</label>
-                            <select class="w-full p-2 border rounded-lg">
-                                <option>住宅</option>
-                                <option>商業</option>
-                                <option>工業</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block text-gray-700 mb-2">所在區域</label>
-                            <input type="text" class="w-full p-2 border rounded-lg" placeholder="請輸入地址">
-                        </div>
-
-                        <div>
-                            <label class="block text-gray-700 mb-2">建物面積（平方公尺）</label>
-                            <input type="number" class="w-full p-2 border rounded-lg">
-                        </div>
-
-                        <div>
-                            <label class="block text-gray-700 mb-2">屋齡（年）</label>
-                            <input type="number" class="w-full p-2 border rounded-lg">
-                        </div>
-
-                        <div>
-                            <label class="block text-gray-700 mb-2">樓層</label>
-                            <input type="number" class="w-full p-2 border rounded-lg">
-                        </div>
-
-                        <button type="submit" class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-colors">
-                            開始估價
-                        </button>
-                    </form>
-                </div>
-
-                <div id="estimateResult" class="mt-8 bg-white p-6 rounded-lg shadow-md hidden">
-                    <h3 class="text-xl font-semibold mb-4">估價結果</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <p class="text-gray-600">預估價格</p>
-                            <p class="text-2xl font-bold text-blue-500">NT$ 15,000,000</p>
-                        </div>
-                        <div>
-                            <p class="text-gray-600">每坪單價</p>
-                            <p class="text-2xl font-bold text-blue-500">NT$ 500,000</p>
-                        </div>
-                    </div>
-                    <button class="mt-6 bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-colors">
-                        下載詳細報告
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- 歷史記錄頁面 -->
-        <div class="page" id="history">
-            <div class="max-w-7xl mx-auto px-4 py-8">
-                <h2 class="text-3xl font-bold text-gray-900 mb-8">估價歷史記錄</h2>
-                
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <table class="min-w-full">
-                        <thead class="bg-gray-50">
-                            <tr>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">估價日期</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">不動產類型</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">預估價格</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">2024-03-20</td>
-                                <td class="px-6 py-4 whitespace-nowrap">住宅</td>
-                                <td class="px-6 py-4 whitespace-nowrap">NT$ 15,000,000</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <button class="text-blue-500 hover:text-blue-700">查看詳情</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- 個人中心頁面 -->
-        <div class="page" id="profile">
-            <div class="max-w-3xl mx-auto px-4 py-8">
-                <h2 class="text-3xl font-bold text-gray-900 mb-8">個人中心</h2>
-                
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="flex items-center mb-6">
-                        <div class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center">
-                            <i class="fas fa-user text-3xl text-gray-500"></i>
-                        </div>
-                        <div class="ml-4">
-                            <h3 class="text-xl font-semibold">王小明</h3>
-                            <p class="text-gray-600">會員編號：123456</p>
-                        </div>
-                    </div>
-
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-gray-700 mb-2">電子郵件</label>
-                            <input type="email" class="w-full p-2 border rounded-lg" value="example@email.com">
-                        </div>
-
-                        <div>
-                            <label class="block text-gray-700 mb-2">手機號碼</label>
-                            <input type="tel" class="w-full p-2 border rounded-lg" value="0912-345-678">
-                        </div>
-
-                        <div>
-                            <label class="block text-gray-700 mb-2">會員等級</label>
-                            <p class="text-blue-500 font-semibold">黃金會員</p>
-                        </div>
-
-                        <button class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-colors">
-                            更新資料
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 關於我們頁面 -->
-        <div class="page" id="about">
-            <div class="max-w-7xl mx-auto px-4 py-8">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-4">關於我們</h2>
-                    <p class="text-xl text-gray-600">專業的不動產估價服務，為您提供最準確的市場價值評估</p>
-                </div>
-
-                <!-- 公司介紹 -->
-                <div class="bg-white p-8 rounded-lg shadow-md mb-8">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">公司介紹</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        我們是一家專業的不動產估價科技公司，擁有超過10年的市場經驗。我們結合傳統估價專業知識與現代科技，
-                        為客戶提供快速、準確、專業的不動產估價服務。我們的團隊由資深估價師、數據分析師和軟體工程師組成，
-                        致力於為您提供最優質的服務體驗。
-                    </p>
-                </div>
-
-                <!-- 服務特色 -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <i class="fas fa-shield-alt text-blue-500 text-3xl mb-4"></i>
-                        <h4 class="text-xl font-semibold mb-2">專業可靠</h4>
-                        <p class="text-gray-600">擁有專業估價師團隊，確保估價結果的準確性和可靠性</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <i class="fas fa-bolt text-blue-500 text-3xl mb-4"></i>
-                        <h4 class="text-xl font-semibold mb-2">快速便捷</h4>
-                        <p class="text-gray-600">運用AI技術，提供即時估價服務，節省您的寶貴時間</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <i class="fas fa-chart-bar text-blue-500 text-3xl mb-4"></i>
-                        <h4 class="text-xl font-semibold mb-2">數據分析</h4>
-                        <p class="text-gray-600">深入分析市場數據，提供全面的市場趨勢報告</p>
-                    </div>
-                </div>
-
-                <!-- 使用流程 -->
-                <div class="bg-white p-8 rounded-lg shadow-md mb-8">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">使用流程</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        <div class="text-center">
-                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <span class="text-blue-500 font-bold">1</span>
-                            </div>
-                            <h4 class="font-semibold mb-2">輸入資訊</h4>
-                            <p class="text-gray-600 text-sm">填寫不動產基本資料</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <span class="text-blue-500 font-bold">2</span>
-                            </div>
-                            <h4 class="font-semibold mb-2">系統分析</h4>
-                            <p class="text-gray-600 text-sm">AI智能分析市場數據</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <span class="text-blue-500 font-bold">3</span>
-                            </div>
-                            <h4 class="font-semibold mb-2">專業評估</h4>
-                            <p class="text-gray-600 text-sm">估價師審核確認</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <span class="text-blue-500 font-bold">4</span>
-                            </div>
-                            <h4 class="font-semibold mb-2">獲取報告</h4>
-                            <p class="text-gray-600 text-sm">下載詳細估價報告</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 聯絡我們 -->
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">聯絡我們</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <h4 class="font-semibold mb-4">聯絡資訊</h4>
-                            <div class="space-y-3">
-                                <p class="flex items-center text-gray-600">
-                                    <i class="fas fa-phone mr-3 text-blue-500"></i>
-                                    0800-123-456
-                                </p>
-                                <p class="flex items-center text-gray-600">
-                                    <i class="fas fa-envelope mr-3 text-blue-500"></i>
-                                    service@example.com
-                                </p>
-                                <p class="flex items-center text-gray-600">
-                                    <i class="fas fa-map-marker-alt mr-3 text-blue-500"></i>
-                                    台北市信義區信義路五段5號
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold mb-4">營業時間</h4>
-                            <div class="space-y-2 text-gray-600">
-                                <p>週一至週五：09:00 - 18:00</p>
-                                <p>週六：10:00 - 16:00</p>
-                                <p>週日：休息</p>
-                            </div>
+    <div class="container">
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+            <div class="portfolio-grid">
+                <!-- Compound Analysis -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                    <a href="#" class="portfolio-link" onclick="showProjectDetails('compound')">
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <div class="portfolio-content">
+                        <div class="portfolio-title">Compound Analysis and Recommendations</div>
+                        <div class="portfolio-description">Comprehensive analysis of Compound's DeFi lending protocol, including ecosystem assessment, technical evaluation, and strategic recommendations for improvement.</div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section id="about">
+            <div class="contact-info">
+                <a href="https://www.linkedin.com/in/yu-en-cheng" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="mailto:chengyuen51@gmail.com">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="https://reurl.cc/362loM" target="_blank">
+                    <i class="fas fa-briefcase"></i> Portfolio
+                </a>
+                <a href="https://t.me/yucheng0501">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a>
+            </div>
+
+            <h2>Professional Summary</h2>
+            <ul class="qualification-summary">
+                <li>Results-driven professional with 6+ years of experience as a Product Manager, Data Scientist, and Project Manager, excelling in product development and cross-functional leadership within software startup environments.</li>
+                <li>Utilizing Python and MS SQL for data cleaning, analysis, managing datasets of over 500,000 records, optimizing machine learning models, and developing APIs to deliver impactful solutions.</li>
+                <li>Enhancing brand awareness through Facebook and Google Ads campaigns, while strengthening customer relationships through tailored EDM strategies, achieving open rates of 30-40%.</li>
+                <li>Strong communicator with dual degrees and experience in engineering and business, skilled at aligning product strategy with user needs and engaging stakeholders.</li>
+            </ul>
+
+            <h2>Core Skills</h2>
+            <div class="skills">
+                <span class="skill-tag">0 to 1 Product Development</span>
+                <span class="skill-tag">Data Analysis</span>
+                <span class="skill-tag">Project Leadership</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">MS SQL</span>
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">Digital Marketing</span>
+            </div>
+        </section>
+
+        <!-- Project Details Modal -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="modal-content"></div>
+            </div>
         </div>
-    </main>
+    </div>
 
     <script>
-        // 頁面切換功能
-        function showPage(pageId) {
-            // 隱藏所有頁面
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // 顯示目標頁面
-            document.getElementById(pageId).classList.add('active');
-            
-            // 更新導航欄狀態
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            document.querySelector(`[data-page="${pageId}"]`).classList.add('active');
+        // Modal functionality
+        const modal = document.getElementById('modal');
+        const modalContent = document.getElementById('modal-content');
+        const span = document.getElementsByClassName('close')[0];
+
+        span.onclick = function() {
+            modal.style.display = 'none';
         }
 
-        // 導航欄點擊事件
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const pageId = e.target.getAttribute('data-page');
-                showPage(pageId);
-            });
-        });
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
 
-        // 估價表單提交事件
-        document.getElementById('estimateForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            document.getElementById('estimateResult').classList.remove('hidden');
-        });
+        function showProjectDetails(project) {
+            if (project === 'compound') {
+                modalContent.innerHTML = `
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h2>Compound Analysis and Recommendations</h2>
+                            <div class="project-date">February 18, 2025</div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title">Project Overview</div>
+                            <p>A decentralized lending protocol on Ethereum, allowing users to earn or pay interest by depositing and borrowing crypto assets. It not only provides fundamental decentralized finance (DeFi) functionalities but also achieves broader applications through diversified features and cross-chain support.</p>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title">Technology and Features</div>
+                            
+                            <div class="project-subsection">
+                                <div class="project-subsection-title">Ecosystem Networks and Lending Asset Variety</div>
+                                <p>Primarily deployed on the Ethereum mainnet, it has successfully expanded to multiple Layer 2 networks. The total value locked (TVL) has remained between $3 to $4 billion (including loans) since 2025. The supported assets across various networks are as follows:</p>
+                                
+                                <div class="feature-list">
+                                    <div class="feature-item">
+                                        <strong>Ethereum (over 80%)</strong>
+                                        <p>Supports the widest range of assets, including major cryptocurrencies such as ETH, USDC, WBTC, and others.</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <strong>Arbitrum & Base</strong>
+                                        <p>Each supports 4 main assets</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <strong>Optimism</strong>
+                                        <p>Supports 3 assets</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <strong>Polygon</strong>
+                                        <p>Supports 2 assets</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <strong>Mantle & Scroll</strong>
+                                        <p>Each supports 1 asset</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title">Interest Rate Model</div>
+                                <p>Compound's interest rate model is based on a dual-linear mechanism, divided into two phases according to the capital utilization rate:</p>
+                                <div class="feature-list">
+                                    <div class="feature-item">
+                                        <strong>Low Utilization Phase (typically 0% - 80%)</strong>
+                                        <p>Interest rate changes are more gradual, aiming to maintain the activity and liquidity of the capital market.</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <strong>High Utilization Phase (typically above 80%)</strong>
+                                        <p>Interest rates increase sharply to allocate capital more efficiently and suppress excessive borrowing demand. This design ensures that the capital utilization rate remains close to the optimal level, improving the protocol's efficiency and stability.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title">Liquidation Mechanism</div>
+                                <p>Each asset has its own liquidation threshold. If the ratio of borrowed amount to collateral amount exceeds the liquidation threshold, the borrower is at risk of being liquidated. The liquidation mechanism includes liquidators and liquidation incentives:</p>
+                                <div class="highlight-box">
+                                    <p><strong>Liquidators:</strong> Individuals who can intervene to repay a borrower's debt. By repaying the borrower's debt, they can obtain the collateral. Specifically, liquidators repay part or all of the borrower's debt on their behalf in exchange for the corresponding collateral assets.</p>
+                                    <p><strong>Liquidation Incentive:</strong> To encourage liquidators to participate in the liquidation process, Compound provides a liquidation incentive. When liquidators repay the borrower's debt, they receive the collateral at a discounted price, thereby profiting from the process.</p>
+                                </div>
+                            </div>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title">Governance Model</div>
+                                <p>Compound adopts a community governance model, issuing the COMP governance token. Token holders manage and upgrade the protocol through proposals, which include adding support for new assets, adjusting collateral ratios, and modifying interest rate models, effectively replacing the centralized governance of traditional developer teams.</p>
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title">Summary and Suggestions</div>
+                            <p>From 2023 to the present, Compound's total value locked (TVL) has remained between $2 billion and $4 billion, without significant breakthroughs. In contrast, DeFi leader Aave has shown remarkable growth, with its TVL increasing from $10 billion to $30 billion since 2024. This growth reflects consistent increases in user adoption and utilization. Additionally, in 2024, Aave expanded its operations to Layer 2 solutions such as Arbitrum, Base, and zkSync, enabling it to attract more users and reduce transaction costs. Currently, Aave operates on over 10 chains. Its multi-chain strategy plays a crucial role in increasing liquidity and market coverage. If Compound could draw on Aave's successful experience and strengthen its expansion strategies, it would likely improve its market performance and grow its user base.</p>
+                            
+                            <p>Compound holds more than 80% of its TVL within the Ethereum ecosystem, making Ethereum its primary market. Compound V3 currently supports five markets on Ethereum and four on Arbitrum. However, the capital utilization rates in these markets often exceed 80%. While high utilization rates bring short-term revenue, they also pose long-term risks. Excessively high utilization drives up interest rates, which can discourage borrowing activity and potentially impact overall revenue. Additionally, when liquidity pools face supply shortages, borrowers may be unable to access funds in a timely manner, leading to user attrition. Emerging DeFi platforms like Scallop, despite having lower TVL than Compound, have shown more robust revenue performance (approximately 1.5x that of Compound's). The revenue of a lending platform is closely tied to its interest rate model. To address liquidity challenges and increase overall revenue, it is advisable for Compound to adopt Scallop's three-linear interest rate model. This model sets three different interest rates corresponding to low, medium, and high capital utilization levels, providing a more precise interest rate adjustment mechanism. Compared to Compound's two-linear model, the three-linear model allows for more nuanced adjustments to interest rates based on varying market conditions. This not only optimizes capital utilization efficiency but also enables the protocol to adapt flexibly to the rapidly changing Web3 market environment. By implementing this model, Compound could enhance its platform's competitiveness and revenue, offering a more stable source of income for the protocol.</p>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title">Market Positioning</div>
+                            <p>As an early innovator and leader in the DeFi lending space, Compound benefits from a more mature market and user base and holds a significant position within the Ethereum ecosystem.</p>
+
+                            <div class="highlight-box">
+                                <strong>The primary user groups include:</strong>
+                                <ul class="recommendation-list">
+                                    <li>Users who support Ethereum and tokens related to its ecosystem.</li>
+                                    <li>A broader and more diverse group of users.</li>
+                                    <li>Individuals prioritizing stability and security.</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title">Summary and Suggestions</div>
+                                <p>While Compound boasts a mature user base, strong security, and a stable product image, it appears to lag in continuous technological innovation and overall market momentum. In comparison, the leading DeFi lending platform Aave demonstrated notable success with its innovative flash loans, achieving monthly transaction value exceeding hundreds of millions of dollars on the Ethereum network in 2024. Other notable DeFi lending platforms, such as Morpho Blue with its permissionless asset listings and Spark Lend with its lowest interest rates, exemplify the industry's active drive to increase revenues through innovation. Therefore, Compound should proactively explore and adopt innovative technologies to enhance its position and generate revenue growth.</p>
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title">Interface Experience</div>
+                            <p>The overall interface is clean with clear background colors, making operations simple once users become familiar with it.</p>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title">Summary and Recommendations</div>
+                                <p>The current interface lacks sufficient operational guidance, particularly unfriendly to new users, making the next steps unclear and causing confusion. For example, new users attempting to borrow are unaware that they must first deposit collateral to complete the borrowing process. Therefore, the following suggestions are offered:</p>
+
+                                <strong>Add Operational Guidance:</strong>
+                                <p>It is recommended to incorporate clear and concise operational guidance within the interface. For instance, on the borrowing page, provide prompts indicating that users need to deposit collateral before being able to borrow. As shown in Figure 1 (Compound interface) with the red box, "Borrow USDT" appears in gray and is actually disabled, but there are no guiding instructions on how to proceed with borrowing, leaving new users uncertain and unable to proceed. I suggest following the example in Figure 2 (Scallop interface) by providing appropriate operational feedback or prompts to enhance interface usability.</p>
+
+                                <div class="figure-grid">
+                                    <div class="figure-item">
+                                        <div class="figure-image" style="background-image: url('Figure 1.jpg')"></div>
+                                        <div class="figure-caption">Figure 1: Compound interface showing disabled borrow function without guidance</div>
+                                    </div>
+                                    <div class="figure-item">
+                                        <div class="figure-image" style="background-image: url('Figure 2.jpg')"></div>
+                                        <div class="figure-caption">Figure 2: Scallop interface with clear operational guidance</div>
+                                    </div>
+                                </div>
+
+                                <strong>Integrate Information:</strong>
+                                <p>Compound currently provides basic interest rate information, as shown in Figure 3. I recommend integrating key parameters and information required for lending and borrowing on the same screen to reduce the need for users to switch pages or perform additional queries. Consider Scallop's design, as shown in Figure 4, which integrates more reference data and operational guidance on a single screen, enriching the information available and improving user experience and operational convenience.</p>
+
+                                <div class="figure-grid">
+                                    <div class="figure-item">
+                                        <div class="figure-image" style="background-image: url('Figure 3.jpg')"></div>
+                                        <div class="figure-caption">Figure 3: Compound's basic interest rate information display</div>
+                                    </div>
+                                    <div class="figure-item">
+                                        <div class="figure-image" style="background-image: url('Figure 4.jpg')"></div>
+                                        <div class="figure-caption">Figure 4: Scallop's integrated information display</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-section">
+                            <div class="project-section-title">Conclusions and Expected Results</div>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title">Locked Value, Revenue, and Competitiveness</div>
+                                <p>Compound's TVL has remained between $2-4 billion from 2023 to present, without significant breakthrough. This shows insufficient competitiveness compared to Aave's rapid growth (TVL increased from $10 billion to $30 billion).</p>
+                                
+                                <strong>Recommendations</strong>
+                                <ul class="recommendation-list">
+                                    <li>Strengthen multi-chain strategy: Learn from Aave's successful experience by expanding to more Layer 2 networks to reduce transaction costs and attract more users.</li>
+                                    <li>Optimize interest rate model: Reference Scallop's trilinear interest rate model and test more flexible interest rate designs to balance capital utilization and lending activity, thereby increasing overall revenue.</li>
+                                </ul>
+                                
+                                <strong>Expected Effects</strong>
+                                <p>Multi-chain strategy will increase TVL and enhance market share. Testing adjustments to the interest rate model aims to increase interest income.</p>
+                            </div>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title">Technical Innovation and Market</div>
+                                <p>Compound appears somewhat lacking in technical innovation and market momentum compared to Aave's flash loans and MorphoBlue's permissionless asset listings, missing notable technical breakthroughs.</p>
+                                
+                                <strong>Recommendations</strong>
+                                <p>Explore innovative features, starting with emulating Aave's successful flash loan implementation.</p>
+                                
+                                <strong>Expected Effects</strong>
+                                <p>Aave's flash loans have demonstrated monthly transaction value reaching hundreds of millions of dollars. By introducing flash loan products, Compound can increase platform usage and momentum.</p>
+                            </div>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title">User Experience and Interface Optimization</div>
+                                <p>Compound's interface lacks operational guidance, particularly unfriendly to new users, potentially causing confusion and user churn.</p>
+                                
+                                <strong>Recommendations</strong>
+                                <ul class="recommendation-list">
+                                    <li>Add operation guides: Clearly prompt users to deposit collateral first on the borrowing page and provide step-by-step guidance.</li>
+                                    <li>Integrate key information: Following Scallop's design, integrate necessary parameters and operation guides on the same screen to improve user convenience.</li>
+                                </ul>
+                                
+                                <strong>Expected Effects</strong>
+                                <p>Enhanced user experience, improved retention rate for new users, and a more stable overall user base.</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                modal.style.display = 'block';
+            }
+        }
     </script>
 </body>
 </html> 
