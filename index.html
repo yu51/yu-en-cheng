@@ -650,6 +650,53 @@
                 font-size: 0.95rem;
             }
         }
+
+        /* Tab Styles */
+        .portfolio-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .portfolio-tab {
+            padding: 0.8rem 2rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: var(--gray);
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-tab:hover {
+            color: var(--primary);
+        }
+
+        .portfolio-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .portfolio-category {
+            display: none;
+        }
+
+        .portfolio-category.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-tabs {
+                gap: 0.5rem;
+            }
+
+            .portfolio-tab {
+                padding: 0.6rem 1rem;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -670,9 +717,14 @@
         <section id="portfolio">
             <h2>Portfolio</h2>
             
+            <!-- Portfolio Tabs -->
+            <div class="portfolio-tabs">
+                <button class="portfolio-tab active" onclick="switchTab('analysis')">Analysis</button>
+                <button class="portfolio-tab" onclick="switchTab('development')">Development</button>
+            </div>
+
             <!-- Analysis Category -->
-            <div class="portfolio-category">
-                <h3 style="color: var(--primary); font-size: 1.5rem; margin: 2rem 0 1.5rem;">Analysis</h3>
+            <div id="analysis" class="portfolio-category active">
                 <div class="portfolio-grid">
                     <!-- Compound Analysis -->
                     <div class="portfolio-item">
@@ -689,8 +741,7 @@
             </div>
 
             <!-- Development Category -->
-            <div class="portfolio-category">
-                <h3 style="color: var(--primary); font-size: 1.5rem; margin: 2rem 0 1.5rem;">Development</h3>
+            <div id="development" class="portfolio-category">
                 <div class="portfolio-grid">
                     <!-- Sui Smart Contract -->
                     <div class="portfolio-item">
@@ -801,7 +852,26 @@
     </div>
 
     <script>
-        // Modal functionality
+        // Tab switching functionality
+        function switchTab(tabId) {
+            // Hide all categories
+            document.querySelectorAll('.portfolio-category').forEach(category => {
+                category.classList.remove('active');
+            });
+            
+            // Deactivate all tabs
+            document.querySelectorAll('.portfolio-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected category
+            document.getElementById(tabId).classList.add('active');
+            
+            // Activate selected tab
+            document.querySelector(`.portfolio-tab[onclick="switchTab('${tabId}')"]`).classList.add('active');
+        }
+
+        // Existing modal functionality
         const modal = document.getElementById('modal');
         const modalContent = document.getElementById('modal-content');
         const span = document.getElementsByClassName('close')[0];
