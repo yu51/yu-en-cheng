@@ -697,6 +697,30 @@
                 font-size: 1rem;
             }
         }
+
+        .section-nav {
+            margin-top: 1rem;
+            padding: 0.5rem 0;
+            border-top: 1px solid var(--light);
+        }
+
+        .section-nav a {
+            color: var(--primary);
+            text-decoration: none;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .section-nav a:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .project-section {
+            scroll-margin-top: 100px;
+        }
     </style>
 </head>
 <body>
@@ -716,26 +740,206 @@
 
     <div class="container">
         <section id="portfolio">
-            <h2>Portfolio</h2>
+            <h2>Web3 Engagement and Portfolio</h2>
             
             <!-- Portfolio Tabs -->
             <div class="portfolio-tabs">
-                <button class="portfolio-tab active" onclick="switchTab('analysis')">Analysis</button>
-                <button class="portfolio-tab" onclick="switchTab('development')">Development</button>
+                <button class="portfolio-tab active" onclick="switchTab('analysis')">DeFi Analysis</button>
+                <button class="portfolio-tab" onclick="switchTab('development')">Smart Contract Trial on SUI</button>
+                <button class="portfolio-tab" onclick="switchTab('prd')">Product Requirement Document </button>
             </div>
 
             <!-- Analysis Category -->
             <div id="analysis" class="portfolio-category active">
-                <div class="portfolio-grid">
-                    <!-- Compound Analysis -->
-                    <div class="portfolio-item">
-                        <div class="portfolio-image" style="background-image: url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
-                        <a href="#" class="portfolio-link" onclick="showProjectDetails('compound')">
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                        <div class="portfolio-content">
-                            <div class="portfolio-title">Compound Analysis and Recommendations</div>
-                            <div class="portfolio-description">Comprehensive analysis of Compound's DeFi lending protocol, including ecosystem assessment, technical evaluation, and strategic recommendations for improvement.</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h2>Compound Analysis and Recommendations</h2>
+                        <div class="project-date">February 18, 2025</div>
+                        <div class="section-nav">
+                            <a href="#overview">Overview</a> |
+                            <a href="#tech">Technology & Features</a> |
+                            <a href="#market">Market Positioning</a> |
+                            <a href="#interface">Interface Experience</a> |
+                            <a href="#conclusion">Conclusions & Expected Results</a>
+                        </div>
+                    </div>
+
+                    <div class="project-section" id="overview">
+                        <div class="project-section-title">Compound Overview</div>
+                        <p style="text-align: justify;">A decentralized lending protocol on Ethereum, allowing users to earn or pay interest by depositing and borrowing crypto assets. It not only provides fundamental decentralized finance (DeFi) functionalities but also achieves broader applications through diversified features and cross-chain support.</p>
+                    </div>
+
+                    <div class="project-section" id="tech">
+                        <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Technology and Features</div>
+                        
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">Ecosystem Networks and Lending Asset Variety</div>
+                            <p style="text-align: justify;">Primarily deployed on the Ethereum mainnet, it has successfully expanded to multiple Layer 2 networks. The total value locked (TVL) has remained between $3 to $4 billion (including loans) since 2025. The supported assets across various networks are as follows:</p>
+                            
+                            <div class="feature-list">
+                                <div class="feature-item">
+                                    <strong>Ethereum (over 80%)</strong>
+                                    <p style="text-align: justify;">Supports the widest range of assets, including major cryptocurrencies such as ETH, USDC, WBTC, and others.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <strong>Arbitrum & Base</strong>
+                                    <p style="text-align: justify;">Each supports 4 main assets</p>
+                                </div>
+                                <div class="feature-item">
+                                    <strong>Optimism</strong>
+                                    <p style="text-align: justify;">Supports 3 assets</p>
+                                </div>
+                                <div class="feature-item">
+                                    <strong>Polygon</strong>
+                                    <p style="text-align: justify;">Supports 2 assets</p>
+                                </div>
+                                <div class="feature-item">
+                                    <strong>Mantle & Scroll</strong>
+                                    <p style="text-align: justify;">Each supports 1 asset</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">Interest Rate Model</div>
+                            <p style="text-align: justify;">Compound's interest rate model is based on a dual-linear mechanism, divided into two phases according to the capital utilization rate:</p>
+                            <div class="feature-list">
+                                <div class="feature-item">
+                                    <strong>Low Utilization Phase (typically 0% - 80%)</strong>
+                                    <p style="text-align: justify;">Interest rate changes are more gradual, aiming to maintain the activity and liquidity of the capital market.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <strong>High Utilization Phase (typically above 80%)</strong>
+                                    <p style="text-align: justify;">Interest rates increase sharply to allocate capital more efficiently and suppress excessive borrowing demand. This design ensures that the capital utilization rate remains close to the optimal level, improving the protocol's efficiency and stability.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">Liquidation Mechanism</div>
+                            <p style="text-align: justify;">Each asset has its own liquidation threshold. If the ratio of borrowed amount to collateral amount exceeds the liquidation threshold, the borrower is at risk of being liquidated. The liquidation mechanism includes liquidators and liquidation incentives:</p>
+                            <div class="highlight-box">
+                                <p style="text-align: justify;"><strong>Liquidators:</strong> Individuals who can intervene to repay a borrower's debt. By repaying the borrower's debt, they can obtain the collateral. Specifically, liquidators repay part or all of the borrower's debt on their behalf in exchange for the corresponding collateral assets.</p>
+                                <p style="text-align: justify;"><strong>Liquidation Incentive:</strong> To encourage liquidators to participate in the liquidation process, Compound provides a liquidation incentive. When liquidators repay the borrower's debt, they receive the collateral at a discounted price, thereby profiting from the process.</p>
+                            </div>
+                        </div>
+
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">Governance Model</div>
+                            <p style="text-align: justify;">Compound adopts a community governance model, issuing the COMP governance token. Token holders manage and upgrade the protocol through proposals, which include adding support for new assets, adjusting collateral ratios, and modifying interest rate models, effectively replacing the centralized governance of traditional developer teams.</p>
+                        </div>
+
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">Summary and Suggestions</div>
+                            <div class="highlight-box" style="margin-bottom: 1.5rem;">
+                                <strong>Multi-Chain Strategy</strong>
+                                <p style="margin-top: 0.5rem; text-align: justify;">From 2023 to the present, Compound's total value locked (TVL) has remained between $2 billion and $4 billion, without significant breakthroughs. In contrast, DeFi leader Aave has shown remarkable growth, with its TVL increasing from $10 billion to $30 billion since 2024. This growth reflects consistent increases in user adoption and utilization. Additionally, in 2024, Aave expanded its operations to Layer 2 solutions such as Arbitrum, Base, and zkSync, enabling it to attract more users and reduce transaction costs. Currently, Aave operates on over 10 chains. Its multi-chain strategy plays a crucial role in increasing liquidity and market coverage. If Compound could draw on Aave's successful experience and strengthen its expansion strategies, it would likely improve its market performance and grow its user base.</p>
+                            </div>
+                            
+                            <div class="highlight-box">
+                                <strong>Interest Rate Model</strong>
+                                <p style="margin-top: 0.5rem; text-align: justify;">Compound holds more than 80% of its TVL within the Ethereum ecosystem, making Ethereum its primary market. Compound V3 currently supports five markets on Ethereum and four on Arbitrum. However, the capital utilization rates in these markets often exceed 80%. While high utilization rates bring short-term revenue, they also pose long-term risks. Excessively high utilization drives up interest rates, which can discourage borrowing activity and potentially impact overall revenue. Additionally, when liquidity pools face supply shortages, borrowers may be unable to access funds in a timely manner, leading to user attrition. Emerging DeFi platforms like Scallop, despite having lower TVL than Compound, have shown more robust revenue performance (approximately 1.5x that of Compound's). The revenue of a lending platform is closely tied to its interest rate model. To address liquidity challenges and increase overall revenue, it is advisable for Compound to adopt Scallop's three-linear interest rate model. This model sets three different interest rates corresponding to low, medium, and high capital utilization levels, providing a more precise interest rate adjustment mechanism. Compared to Compound's two-linear model, the three-linear model allows for more nuanced adjustments to interest rates based on varying market conditions. This not only optimizes capital utilization efficiency but also enables the protocol to adapt flexibly to the rapidly changing Web3 market environment. By implementing this model, Compound could enhance its platform's competitiveness and revenue, offering a more stable source of income for the protocol.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section" id="market">
+                        <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Market Positioning</div>
+                        <p style="text-align: justify;">As an early innovator and leader in the DeFi lending space, Compound benefits from a more mature market and user base and holds a significant position within the Ethereum ecosystem.</p>
+
+                        <div class="highlight-box">
+                            <strong>The primary user groups include:</strong>
+                            <ul class="recommendation-list">
+                                <li>Users who support Ethereum and tokens related to its ecosystem.</li>
+                                <li>A broader and more diverse group of users.</li>
+                                <li>Individuals prioritizing stability and security.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">Summary and Suggestions</div>
+                            <p style="text-align: justify;">While Compound boasts a mature user base, strong security, and a stable product image, it appears to lag in continuous technological innovation and overall market momentum. In comparison, the leading DeFi lending platform Aave demonstrated notable success with its innovative flash loans, achieving monthly transaction value exceeding hundreds of millions of dollars on the Ethereum network in 2024. Other notable DeFi lending platforms, such as Morpho Blue with its permissionless asset listings and Spark Lend with its lowest interest rates, exemplify the industry's active drive to increase revenues through innovation. Therefore, Compound should proactively explore and adopt innovative technologies to enhance its position and generate revenue growth.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-section" id="interface">
+                        <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Interface Experience</div>
+                        <p style="text-align: justify;">The overall interface is clean with clear background colors, making operations simple once users become familiar with it.</p>
+
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">Summary and Recommendations</div>
+                            <p style="text-align: justify;">The current interface lacks sufficient operational guidance, particularly unfriendly to new users, making the next steps unclear and causing confusion. For example, new users attempting to borrow are unaware that they must first deposit collateral to complete the borrowing process. Therefore, the following suggestions are offered:</p>
+
+                            <strong>Add Operational Guidance:</strong>
+                            <p style="text-align: justify;">It is recommended to incorporate clear and concise operational guidance within the interface. For instance, on the borrowing page, provide prompts indicating that users need to deposit collateral before being able to borrow. As shown in Figure 1 (Compound interface) with the red box, "Borrow USDT" appears in gray and is actually disabled, but there are no guiding instructions on how to proceed with borrowing, leaving new users uncertain and unable to proceed. I suggest following the example in Figure 2 (Scallop interface) by providing appropriate operational feedback or prompts to enhance interface usability.</p>
+
+                            <div class="figure-grid">
+                                <div class="figure-item">
+                                    <div class="figure-image" style="background-image: url('Figure 1.jpg')"></div>
+                                    <div class="figure-caption">Figure 1: Compound interface showing disabled borrow function without guidance</div>
+                                </div>
+                                <div class="figure-item">
+                                    <div class="figure-image" style="background-image: url('Figure 2.jpg')"></div>
+                                    <div class="figure-caption">Figure 2: Scallop interface with clear operational guidance</div>
+                                </div>
+                            </div>
+
+                            <strong>Integrate Information:</strong>
+                            <p style="text-align: justify;">Compound currently provides basic interest rate information, as shown in Figure 3. I recommend integrating key parameters and information required for lending and borrowing on the same screen to reduce the need for users to switch pages or perform additional queries. Consider Scallop's design, as shown in Figure 4, which integrates more reference data and operational guidance on a single screen, enriching the information available and improving user experience and operational convenience.</p>
+
+                            <div class="figure-grid">
+                                <div class="figure-item">
+                                    <div class="figure-image" style="background-image: url('Figure 3.jpg')"></div>
+                                    <div class="figure-caption">Figure 3: Compound's basic interest rate information display</div>
+                                </div>
+                                <div class="figure-item">
+                                    <div class="figure-image" style="background-image: url('Figure 4.jpg')"></div>
+                                    <div class="figure-caption">Figure 4: Scallop's integrated information display</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section" id="conclusion">
+                        <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Conclusions and Expected Results</div>
+
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">Locked Value, Revenue, and Competitiveness</div>
+                            <p style="text-align: justify;">Compound's TVL has remained between $2-4 billion from 2023 to present, without significant breakthrough. This shows insufficient competitiveness compared to Aave's rapid growth (TVL increased from $10 billion to $30 billion).</p>
+                            
+                            <strong>Recommendations</strong>
+                            <ul class="recommendation-list">
+                                <li>Strengthen multi-chain strategy: Learn from Aave's successful experience by expanding to more Layer 2 networks to reduce transaction costs and attract more users.</li>
+                                <li>Optimize interest rate model: Reference Scallop's trilinear interest rate model and test more flexible interest rate designs to balance capital utilization and lending activity, thereby increasing overall revenue.</li>
+                            </ul>
+                            
+                            <strong>Expected Effects</strong>
+                            <p style="text-align: justify;">Multi-chain strategy will increase TVL and enhance market share. Testing adjustments to the interest rate model aims to increase interest income.</p>
+                        </div>
+
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">Technical Innovation and Market</div>
+                            <p style="text-align: justify;">Compound appears somewhat lacking in technical innovation and market momentum compared to Aave's flash loans and MorphoBlue's permissionless asset listings, missing notable technical breakthroughs.</p>
+                            
+                            <strong>Recommendations</strong>
+                            <p style="text-align: justify;">Explore innovative features, starting with emulating Aave's successful flash loan implementation.</p>
+                            
+                            <strong>Expected Effects</strong>
+                            <p style="text-align: justify;">Aave's flash loans have demonstrated monthly transaction value reaching hundreds of millions of dollars. By introducing flash loan products, Compound can increase platform usage and momentum.</p>
+                        </div>
+
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">User Experience and Interface Optimization</div>
+                            <p style="text-align: justify;">Compound's interface lacks operational guidance, particularly unfriendly to new users, potentially causing confusion and user churn.</p>
+                            
+                            <strong>Recommendations</strong>
+                            <ul class="recommendation-list">
+                                <li>Add operation guides: Clearly prompt users to deposit collateral first on the borrowing page and provide step-by-step guidance.</li>
+                                <li>Integrate key information: Following Scallop's design, integrate necessary parameters and operation guides on the same screen to improve user convenience.</li>
+                            </ul>
+                            
+                            <strong>Expected Effects</strong>
+                            <p style="text-align: justify;">Enhanced user experience, improved retention rate for new users, and a more stable overall user base.</p>
                         </div>
                     </div>
                 </div>
@@ -743,20 +947,226 @@
 
             <!-- Development Category -->
             <div id="development" class="portfolio-category">
-                <div class="portfolio-grid">
-                    <!-- Sui Smart Contract -->
-                    <div class="portfolio-item">
-                        <div class="portfolio-image" style="background-image: url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
-                        <a href="#" class="portfolio-link" onclick="showProjectDetails('sui')">
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                        <div class="portfolio-content">
-                            <div class="portfolio-title">Publish a smart contract on SUI network</div>
-                            <div class="portfolio-description">
-                                <p style="margin-bottom: 0.5rem;">March 09, 2025</p>
-                                <p style="margin-bottom: 0.5rem;">Topic: Hello World!</p>
-                                <p style="margin-bottom: 0.5rem;">Environment: devnet</p>
-                                <p>Click the arrow icon to view detailed implementation steps and code.</p>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h2>Publish a smart contract on SUI network</h2>
+                        <div class="project-date">March 09, 2025</div>
+                    </div>
+
+                    <div class="project-section">
+                        <div class="project-section-title">Project Overview</div>
+                        <p>Topic: Using the Move language to experiment with "Hello World Object Creation and Transfer" on the Sui blockchain.</p>
+                        <p>Environment: devnet</p>
+                    </div>
+
+                    <div class="project-section">
+                        <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Implementation Steps</div>
+                        
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">Step 1: Create a new package</div>
+                            <p>Create a new package using the following command:</p>
+                            <div class="highlight-box">
+                                <code>sui move new hello_world</code>
+                            </div>
+                        </div>
+
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">Step 2: Create hello_world module</div>
+                            <p>Create the hello_world.move file with the following code:</p>
+                            <div class="highlight-box">
+                                <pre style="white-space: pre-wrap; font-family: monospace; font-size: 0.9rem;">
+module hello_world::hello_world{
+    use std::string;
+    use sui::object::{Self, UID};
+    use sui::transfer;
+    use sui::tx_context::{Self, TxContext};
+
+    public struct HelloWorldObject has key, store {
+            id: UID,
+            text: string::String
+        }
+
+    public entry fun mint(ctx: &mut TxContext) {
+        let object = HelloWorldObject {
+            id: object::new(ctx),
+            text: string::utf8(b"Hello World!")
+        };
+        transfer::transfer(object, tx_context::sender(ctx));
+    }
+}</pre>
+                            </div>
+                        </div>
+
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">Step 3: Build and Publish</div>
+                            <p>Build the code and publish the contract:</p>
+                            <div class="highlight-box">
+                                <p>Build command:</p>
+                                <code>sui move build</code>
+                                <p style="margin-top: 1rem;">Publish command:</p>
+                                <code>sui client publish --gas-budget 30000000 --skip-dependency-verification</code>
+                            </div>
+                        </div>
+
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">Step 4: Call Function</div>
+                            <p>Call the mint function:</p>
+                            <div class="highlight-box">
+                                <code>sui client call --function mint --module hello_world --package 0x1f52af55eebf885bb9bfb80375b68b84fee32c3d5ba4b41f2ba1ccdda84279df --gas-budget 10000000</code>
+                            </div>
+                        </div>
+
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">Step 5: Verify on Suiscan</div>
+                            <p>Check the published contract on Suiscan:</p>
+                            <div class="figure-grid">
+                                <div class="figure-item">
+                                    <div class="figure-image" style="background-image: url('Figure 5.jpg')"></div>
+                                    <div class="figure-caption">Suiscan interface showing the published contract</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRD Category -->
+            <div id="prd" class="portfolio-category">
+                <div class="project-content">
+                    <div class="project-header">
+                        <h2 style="line-height: 1.4;">PRD : Property Transaction Query and Analytics Feature</h2>
+                        <div class="project-link" style="margin-top: 0.5rem;">
+                            <a href="https://www.houseplus.com.tw/house" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 0.9rem;">
+                                <i class="fas fa-external-link-alt"></i> Launched: https://www.houseplus.com.tw/house
+                            </a>
+                        </div>
+                        <div class="section-nav">
+                            <a href="#doc-management">Document Management</a> |
+                            <a href="#background">Product Introduction</a> |
+                            <a href="#users">Users & Needs</a> |
+                            <a href="#requirements">Functional Requirements and Value</a> |
+                            <a href="#architecture">Product Functional Architecture</a> |
+                            <a href="#interface-prototype">Interface Interaction and Prototype</a> |
+                            <a href="#technical">System and Technical Architecture</a>
+                        </div>
+                    </div>
+
+                    <div class="project-section" id="doc-management">
+                        <div class="project-subsection-title" style="color: var(--gray); font-size: 0.9rem; margin-bottom: 0.5rem; font-style: italic;">Note : Due to commercial confidentiality, the following PRD content and document screenshots are only partially provided.</div>
+                        <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Document and Version Management</div>
+                        <p style="text-align: justify;">For tracking versions, dates, and contributors, all stakeholders can see who made changes, when they occurred, and why they were implemented.</p>
+                        <p style="text-align: justify;">Elements include version, date, revision details and personnel.</p>
+                        <div class="highlight-box">
+                            <div class="figure-grid" style="display: flex; justify-content: center;">
+                                <div class="figure-item" style="max-width: 800px; width: 100%;">
+                                    <div class="figure-image" style="background-image: url('PRD_Figure_1.jpg')"></div>
+                                    <div class="figure-caption">Document and Version Management (PRD document screenshot)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section" id="background">
+                        <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Product Background Introduction</div>
+                        <p style="text-align: justify;">Provides necessary context about why the product exists to ensure that everyone is working toward the same vision.</p>
+                        <p style="text-align: justify;">Elements include Overview and objectives.</p>
+                        
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">Overview and Objectives</div>
+                            <div class="highlight-box">
+                                <p style="text-align: justify;">Allow users to quickly find historical transaction records of registered actual prices in target areas, and understand the relevance of past registered price cases through information such as case prices, characteristics, and regional market conditions, thereby obtaining relatively accurate market information as a reference for buying and selling houses.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section" id="users">
+                        <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Users and Their Needs</div>
+                        <p style="text-align: justify;">To align product development with genuine user requirements while establishing a shared understanding among all stakeholders about the target audience being served.</p>
+                        <p style="text-align: justify;">Elements include target audience, persona, pain points addressed.</p>
+                        
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">Target Audience</div>
+                            <div class="highlight-box">
+                                <p style="text-align: justify;">Individuals aged 25 to 45 who are interested in buying or selling houses.</p>
+                                <p style="text-align: justify;">Data Source: Google Analytics data shows that the 25-45 age group accounts for over 60% of users.</p>
+                            </div>
+                        </div>
+
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">User Persona</div>
+                            <div class="highlight-box">
+                                <div class="figure-grid" style="display: flex; justify-content: center;">
+                                    <div class="figure-item" style="max-width: 800px; width: 100%;">
+                                        <div class="figure-image" style="background-image: url('PRD_Figure_2.jpg')"></div>
+                                        <div class="figure-caption">User Persona (PRD document screenshot)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-subsection">
+                            <div class="project-subsection-title">Pain Points Addressed</div>
+                            <div class="highlight-box">
+                                <p style="text-align: justify;">Real estate price registration data is the only official historical transaction data. However, the government's real estate price registration database is complex and difficult to use. Therefore, this real estate price registration query function aims to help users organize and process messy real estate information and data, making it clear at a glance, providing a more user-friendly entry point for those new to the real estate market.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section" id="requirements">
+                        <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Functional Requirements and Value</div>
+                        <p style="text-align: justify;">Transforming abstract product concepts into concrete features with clear purpose and value, ensuring everyone understands what will be built and why it matters to users.</p>
+                        <p style="text-align: justify;">Elements include feature names, user stories, user value.</p>
+                        <div class="highlight-box">
+                            <div class="figure-grid" style="display: flex; justify-content: center;">
+                                <div class="figure-item" style="max-width: 800px; width: 100%;">
+                                    <div class="figure-image" style="background-image: url('PRD_Figure_3.jpg')"></div>
+                                    <div class="figure-caption">Functional Requirements and Value (PRD document screenshot)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section" id="architecture">
+                        <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Product Functional Architecture</div>
+                        <p style="text-align: justify;">Providing a comprehensive blueprint of all features and their relationships in order to help the whole team understand the complete picture of what needs to be built and the overall structure.</p>
+                        <div class="highlight-box">
+                            <div class="figure-grid" style="display: flex; justify-content: center;">
+                                <div class="figure-item" style="max-width: 800px; width: 100%;">
+                                    <div class="figure-image" style="background-image: url('PRD_Figure_4.png')"></div>
+                                    <div class="figure-caption">Functional Architecture  (PRD document screenshot)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section" id="interface-prototype">
+                        <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Interface Interaction and Prototype</div>
+                        <p style="text-align: justify;">Transforms abstract requirements into visual representations that demonstrate how users will actually interact with the product, helping all stakeholders visualize the user experience, identify usability issues early, align expectations, and provide developers with clear implementation guidance.</p>
+                        <p style="text-align: justify;">Elements include initial wireframes and interface prototype.</p>
+                        <div class="highlight-box">
+                            <div class="figure-grid">
+                                <div class="figure-item">
+                                    <div class="figure-image" style="background-image: url('PRD_Figure_5.png')"></div>
+                                    <div class="figure-caption">Wireframe (Figma screenshot)</div>
+                                </div>
+                                <div class="figure-item">
+                                    <div class="figure-image" style="background-image: url('PRD_Figure_6.png')"></div>
+                                    <div class="figure-caption">Interface Prototype (Figma screenshot)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section" id="technical">
+                        <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">System and Technical Architecture</div>
+                        <p style="text-align: justify;">Provides developers with a clear understanding of which data sources each feature needs to access, ensuring proper implementation of functionality while establishing the essential connection between user-facing features and the underlying database architecture.</p>
+                        <p style="text-align: justify;">Elements include corresponding features and description, data sources, API, data filtering logic, data types.</p>
+                        <div class="highlight-box">
+                            <div class="figure-grid" style="display: flex; justify-content: center;">
+                                <div class="figure-item" style="max-width: 800px; width: 100%;">
+                                    <div class="figure-image" style="background-image: url('PRD_Figure_7.png')"></div>
+                                    <div class="figure-caption">System and Technical Architecture  (PRD document screenshot)</div>
+                                </div>
                             </div>
                         </div>
                     </div>
