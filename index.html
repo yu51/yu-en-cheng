@@ -751,195 +751,22 @@
 
             <!-- Analysis Category -->
             <div id="analysis" class="portfolio-category active">
-                <div class="project-content">
-                    <div class="project-header">
-                        <h2>Compound Analysis and Recommendations</h2>
-                        <div class="project-date">February 18, 2025</div>
-                        <div class="section-nav">
-                            <a href="#overview">Overview</a> |
-                            <a href="#tech">Technology & Features</a> |
-                            <a href="#market">Market Positioning</a> |
-                            <a href="#interface">Interface Experience</a> |
-                            <a href="#conclusion">Conclusions & Expected Results</a>
+                <div class="project-content" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <div class="project-section" style="margin: 0; padding-bottom: 0.5rem;">
+                        <div class="project-section-title">Pendle Analysis</div>
+                        <div class="project-date" style="margin-top: 0.3rem;">April 09, 2025</div>
+                        <p style="text-align: justify; margin-top: 0.5rem;">Pendle is an innovative DeFi platform that focuses on yield tokenization, offering a unique mechanism to separate yield-generating assets into two components: principal and yield. This approach increases market liquidity and provides greater flexibility for users. However, despite its potential and benefits, Pendle faces challenges related to scalability and stability, which are key areas for improvement.</p>
+                        <div class="section-nav" style="text-align: right; margin-top: 0.5rem; margin-bottom: 0;">
+                            <a href="javascript:void(0)" onclick="showProjectDetails('pendle')">Read Full Analysis</a>
                         </div>
                     </div>
 
-                    <div class="project-section" id="overview">
-                        <div class="project-section-title">Compound Overview</div>
-                        <p style="text-align: justify;">A decentralized lending protocol on Ethereum, allowing users to earn or pay interest by depositing and borrowing crypto assets. It not only provides fundamental decentralized finance (DeFi) functionalities but also achieves broader applications through diversified features and cross-chain support.</p>
-                    </div>
-
-                    <div class="project-section" id="tech">
-                        <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Technology and Features</div>
-                        
-                        <div class="project-subsection">
-                            <div class="project-subsection-title">Ecosystem Networks and Lending Asset Variety</div>
-                            <p style="text-align: justify;">Primarily deployed on the Ethereum mainnet, it has successfully expanded to multiple Layer 2 networks. The total value locked (TVL) has remained between $3 to $4 billion (including loans) since 2025. The supported assets across various networks are as follows:</p>
-                            
-                            <div class="feature-list">
-                                <div class="feature-item">
-                                    <strong>Ethereum (over 80%)</strong>
-                                    <p style="text-align: justify;">Supports the widest range of assets, including major cryptocurrencies such as ETH, USDC, WBTC, and others.</p>
-                                </div>
-                                <div class="feature-item">
-                                    <strong>Arbitrum & Base</strong>
-                                    <p style="text-align: justify;">Each supports 4 main assets</p>
-                                </div>
-                                <div class="feature-item">
-                                    <strong>Optimism</strong>
-                                    <p style="text-align: justify;">Supports 3 assets</p>
-                                </div>
-                                <div class="feature-item">
-                                    <strong>Polygon</strong>
-                                    <p style="text-align: justify;">Supports 2 assets</p>
-                                </div>
-                                <div class="feature-item">
-                                    <strong>Mantle & Scroll</strong>
-                                    <p style="text-align: justify;">Each supports 1 asset</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="project-subsection">
-                            <div class="project-subsection-title">Interest Rate Model</div>
-                            <p style="text-align: justify;">Compound's interest rate model is based on a dual-linear mechanism, divided into two phases according to the capital utilization rate:</p>
-                            <div class="feature-list">
-                                <div class="feature-item">
-                                    <strong>Low Utilization Phase (typically 0% - 80%)</strong>
-                                    <p style="text-align: justify;">Interest rate changes are more gradual, aiming to maintain the activity and liquidity of the capital market.</p>
-                                </div>
-                                <div class="feature-item">
-                                    <strong>High Utilization Phase (typically above 80%)</strong>
-                                    <p style="text-align: justify;">Interest rates increase sharply to allocate capital more efficiently and suppress excessive borrowing demand. This design ensures that the capital utilization rate remains close to the optimal level, improving the protocol's efficiency and stability.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="project-subsection">
-                            <div class="project-subsection-title">Liquidation Mechanism</div>
-                            <p style="text-align: justify;">Each asset has its own liquidation threshold. If the ratio of borrowed amount to collateral amount exceeds the liquidation threshold, the borrower is at risk of being liquidated. The liquidation mechanism includes liquidators and liquidation incentives:</p>
-                            <div class="highlight-box">
-                                <p style="text-align: justify;"><strong>Liquidators:</strong> Individuals who can intervene to repay a borrower's debt. By repaying the borrower's debt, they can obtain the collateral. Specifically, liquidators repay part or all of the borrower's debt on their behalf in exchange for the corresponding collateral assets.</p>
-                                <p style="text-align: justify;"><strong>Liquidation Incentive:</strong> To encourage liquidators to participate in the liquidation process, Compound provides a liquidation incentive. When liquidators repay the borrower's debt, they receive the collateral at a discounted price, thereby profiting from the process.</p>
-                            </div>
-                        </div>
-
-                        <div class="project-subsection">
-                            <div class="project-subsection-title">Governance Model</div>
-                            <p style="text-align: justify;">Compound adopts a community governance model, issuing the COMP governance token. Token holders manage and upgrade the protocol through proposals, which include adding support for new assets, adjusting collateral ratios, and modifying interest rate models, effectively replacing the centralized governance of traditional developer teams.</p>
-                        </div>
-
-                        <div class="project-subsection">
-                            <div class="project-subsection-title">Summary and Suggestions</div>
-                            <div class="highlight-box" style="margin-bottom: 1.5rem;">
-                                <strong>Multi-Chain Strategy</strong>
-                                <p style="margin-top: 0.5rem; text-align: justify;">From 2023 to the present, Compound's total value locked (TVL) has remained between $2 billion and $4 billion, without significant breakthroughs. In contrast, DeFi leader Aave has shown remarkable growth, with its TVL increasing from $10 billion to $30 billion since 2024. This growth reflects consistent increases in user adoption and utilization. Additionally, in 2024, Aave expanded its operations to Layer 2 solutions such as Arbitrum, Base, and zkSync, enabling it to attract more users and reduce transaction costs. Currently, Aave operates on over 10 chains. Its multi-chain strategy plays a crucial role in increasing liquidity and market coverage. If Compound could draw on Aave's successful experience and strengthen its expansion strategies, it would likely improve its market performance and grow its user base.</p>
-                            </div>
-                            
-                            <div class="highlight-box">
-                                <strong>Interest Rate Model</strong>
-                                <p style="margin-top: 0.5rem; text-align: justify;">Compound holds more than 80% of its TVL within the Ethereum ecosystem, making Ethereum its primary market. Compound V3 currently supports five markets on Ethereum and four on Arbitrum. However, the capital utilization rates in these markets often exceed 80%. While high utilization rates bring short-term revenue, they also pose long-term risks. Excessively high utilization drives up interest rates, which can discourage borrowing activity and potentially impact overall revenue. Additionally, when liquidity pools face supply shortages, borrowers may be unable to access funds in a timely manner, leading to user attrition. Emerging DeFi platforms like Scallop, despite having lower TVL than Compound, have shown more robust revenue performance (approximately 1.5x that of Compound's). The revenue of a lending platform is closely tied to its interest rate model. To address liquidity challenges and increase overall revenue, it is advisable for Compound to adopt Scallop's three-linear interest rate model. This model sets three different interest rates corresponding to low, medium, and high capital utilization levels, providing a more precise interest rate adjustment mechanism. Compared to Compound's two-linear model, the three-linear model allows for more nuanced adjustments to interest rates based on varying market conditions. This not only optimizes capital utilization efficiency but also enables the protocol to adapt flexibly to the rapidly changing Web3 market environment. By implementing this model, Compound could enhance its platform's competitiveness and revenue, offering a more stable source of income for the protocol.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-section" id="market">
-                        <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Market Positioning</div>
-                        <p style="text-align: justify;">As an early innovator and leader in the DeFi lending space, Compound benefits from a more mature market and user base and holds a significant position within the Ethereum ecosystem.</p>
-
-                        <div class="highlight-box">
-                            <strong>The primary user groups include:</strong>
-                            <ul class="recommendation-list">
-                                <li>Users who support Ethereum and tokens related to its ecosystem.</li>
-                                <li>A broader and more diverse group of users.</li>
-                                <li>Individuals prioritizing stability and security.</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-subsection">
-                            <div class="project-subsection-title">Summary and Suggestions</div>
-                            <p style="text-align: justify;">While Compound boasts a mature user base, strong security, and a stable product image, it appears to lag in continuous technological innovation and overall market momentum. In comparison, the leading DeFi lending platform Aave demonstrated notable success with its innovative flash loans, achieving monthly transaction value exceeding hundreds of millions of dollars on the Ethereum network in 2024. Other notable DeFi lending platforms, such as Morpho Blue with its permissionless asset listings and Spark Lend with its lowest interest rates, exemplify the industry's active drive to increase revenues through innovation. Therefore, Compound should proactively explore and adopt innovative technologies to enhance its position and generate revenue growth.</p>
-                        </div>
-                    </div>
-
-                    <div class="project-section" id="interface">
-                        <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Interface Experience</div>
-                        <p style="text-align: justify;">The overall interface is clean with clear background colors, making operations simple once users become familiar with it.</p>
-
-                        <div class="project-subsection">
-                            <div class="project-subsection-title">Summary and Recommendations</div>
-                            <p style="text-align: justify;">The current interface lacks sufficient operational guidance, particularly unfriendly to new users, making the next steps unclear and causing confusion. For example, new users attempting to borrow are unaware that they must first deposit collateral to complete the borrowing process. Therefore, the following suggestions are offered:</p>
-
-                            <strong>Add Operational Guidance:</strong>
-                            <p style="text-align: justify;">It is recommended to incorporate clear and concise operational guidance within the interface. For instance, on the borrowing page, provide prompts indicating that users need to deposit collateral before being able to borrow. As shown in Figure 1 (Compound interface) with the red box, "Borrow USDT" appears in gray and is actually disabled, but there are no guiding instructions on how to proceed with borrowing, leaving new users uncertain and unable to proceed. I suggest following the example in Figure 2 (Scallop interface) by providing appropriate operational feedback or prompts to enhance interface usability.</p>
-
-                            <div class="figure-grid">
-                                <div class="figure-item">
-                                    <div class="figure-image" style="background-image: url('Figure 1.jpg')"></div>
-                                    <div class="figure-caption">Figure 1: Compound interface showing disabled borrow function without guidance</div>
-                                </div>
-                                <div class="figure-item">
-                                    <div class="figure-image" style="background-image: url('Figure 2.jpg')"></div>
-                                    <div class="figure-caption">Figure 2: Scallop interface with clear operational guidance</div>
-                                </div>
-                            </div>
-
-                            <strong>Integrate Information:</strong>
-                            <p style="text-align: justify;">Compound currently provides basic interest rate information, as shown in Figure 3. I recommend integrating key parameters and information required for lending and borrowing on the same screen to reduce the need for users to switch pages or perform additional queries. Consider Scallop's design, as shown in Figure 4, which integrates more reference data and operational guidance on a single screen, enriching the information available and improving user experience and operational convenience.</p>
-
-                            <div class="figure-grid">
-                                <div class="figure-item">
-                                    <div class="figure-image" style="background-image: url('Figure 3.jpg')"></div>
-                                    <div class="figure-caption">Figure 3: Compound's basic interest rate information display</div>
-                                </div>
-                                <div class="figure-item">
-                                    <div class="figure-image" style="background-image: url('Figure 4.jpg')"></div>
-                                    <div class="figure-caption">Figure 4: Scallop's integrated information display</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-section" id="conclusion">
-                        <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Conclusions and Expected Results</div>
-
-                        <div class="project-subsection">
-                            <div class="project-subsection-title">Locked Value, Revenue, and Competitiveness</div>
-                            <p style="text-align: justify;">Compound's TVL has remained between $2-4 billion from 2023 to present, without significant breakthrough. This shows insufficient competitiveness compared to Aave's rapid growth (TVL increased from $10 billion to $30 billion).</p>
-                            
-                            <strong>Recommendations</strong>
-                            <ul class="recommendation-list">
-                                <li>Strengthen multi-chain strategy: Learn from Aave's successful experience by expanding to more Layer 2 networks to reduce transaction costs and attract more users.</li>
-                                <li>Optimize interest rate model: Reference Scallop's trilinear interest rate model and test more flexible interest rate designs to balance capital utilization and lending activity, thereby increasing overall revenue.</li>
-                            </ul>
-                            
-                            <strong>Expected Effects</strong>
-                            <p style="text-align: justify;">Multi-chain strategy will increase TVL and enhance market share. Testing adjustments to the interest rate model aims to increase interest income.</p>
-                        </div>
-
-                        <div class="project-subsection">
-                            <div class="project-subsection-title">Technical Innovation and Market</div>
-                            <p style="text-align: justify;">Compound appears somewhat lacking in technical innovation and market momentum compared to Aave's flash loans and MorphoBlue's permissionless asset listings, missing notable technical breakthroughs.</p>
-                            
-                            <strong>Recommendations</strong>
-                            <p style="text-align: justify;">Explore innovative features, starting with emulating Aave's successful flash loan implementation.</p>
-                            
-                            <strong>Expected Effects</strong>
-                            <p style="text-align: justify;">Aave's flash loans have demonstrated monthly transaction value reaching hundreds of millions of dollars. By introducing flash loan products, Compound can increase platform usage and momentum.</p>
-                        </div>
-
-                        <div class="project-subsection">
-                            <div class="project-subsection-title">User Experience and Interface Optimization</div>
-                            <p style="text-align: justify;">Compound's interface lacks operational guidance, particularly unfriendly to new users, potentially causing confusion and user churn.</p>
-                            
-                            <strong>Recommendations</strong>
-                            <ul class="recommendation-list">
-                                <li>Add operation guides: Clearly prompt users to deposit collateral first on the borrowing page and provide step-by-step guidance.</li>
-                                <li>Integrate key information: Following Scallop's design, integrate necessary parameters and operation guides on the same screen to improve user convenience.</li>
-                            </ul>
-                            
-                            <strong>Expected Effects</strong>
-                            <p style="text-align: justify;">Enhanced user experience, improved retention rate for new users, and a more stable overall user base.</p>
+                    <div class="project-section" style="margin: 0; padding-top: 0.5rem;">
+                        <div class="project-section-title">Compound Analysis</div>
+                        <div class="project-date" style="margin-top: 0.2rem;">February 18, 2025</div>
+                        <p style="text-align: justify; margin-top: 0.3rem;">Compound is a decentralized lending protocol that still has deficiencies in technical innovation, user interface friendliness, and market momentum compared to its competitors. It is recommended to optimize multi-chain expansion strategies, interest rate models, innovative features, and interface design to enhance its competitiveness and revenue.</p>
+                        <div class="section-nav" style="text-align: right; margin-top: 0.3rem;">
+                            <a href="javascript:void(0)" onclick="showProjectDetails('compound')">Read Full Analysis</a>
                         </div>
                     </div>
                 </div>
@@ -1228,14 +1055,21 @@ module hello_world::hello_world{
                         <div class="project-header">
                             <h2>Compound Analysis and Recommendations</h2>
                             <div class="project-date">February 18, 2025</div>
+                            <div class="section-nav">
+                                <a href="#overview">Overview</a> |
+                                <a href="#tech">Technology & Features</a> |
+                                <a href="#market">Market Positioning</a> |
+                                <a href="#interface">Interface Experience</a> |
+                                <a href="#conclusion">Conclusions</a>
+                            </div>
                         </div>
 
-                        <div class="project-section">
-                            <div class="project-section-title">Compound Overview</div>
+                        <div class="project-section" id="overview">
+                            <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Compound Overview</div>
                             <p style="text-align: justify;">A decentralized lending protocol on Ethereum, allowing users to earn or pay interest by depositing and borrowing crypto assets. It not only provides fundamental decentralized finance (DeFi) functionalities but also achieves broader applications through diversified features and cross-chain support.</p>
                         </div>
 
-                        <div class="project-section">
+                        <div class="project-section" id="tech">
                             <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Technology and Features</div>
                             
                             <div class="project-subsection">
@@ -1309,7 +1143,7 @@ module hello_world::hello_world{
                             </div>
                         </div>
 
-                        <div class="project-section">
+                        <div class="project-section" id="market">
                             <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Market Positioning</div>
                             <p style="text-align: justify;">As an early innovator and leader in the DeFi lending space, Compound benefits from a more mature market and user base and holds a significant position within the Ethereum ecosystem.</p>
 
@@ -1328,7 +1162,7 @@ module hello_world::hello_world{
                             </div>
                         </div>
 
-                        <div class="project-section">
+                        <div class="project-section" id="interface">
                             <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Interface Experience</div>
                             <p style="text-align: justify;">The overall interface is clean with clear background colors, making operations simple once users become familiar with it.</p>
 
@@ -1366,7 +1200,7 @@ module hello_world::hello_world{
                             </div>
                         </div>
 
-                        <div class="project-section">
+                        <div class="project-section" id="conclusion">
                             <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Conclusions and Expected Results</div>
 
                             <div class="project-subsection">
@@ -1492,6 +1326,237 @@ module hello_world::hello_world{
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                `;
+                modal.style.display = 'block';
+            } else if (project === 'pendle') {
+                modalContent.innerHTML = `
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h2>Pendle Analysis and Recommendations</h2>
+                            <div class="project-date">April 09, 2025</div>
+                            <div class="section-nav">
+                                <a href="#overview">Overview</a> |
+                                <a href="#background">Background Analysis</a> |
+                                <a href="#tech">Technology</a> |
+                                <a href="#market">Market Performance</a> |
+                                <a href="#challenges">Challenges</a> |
+                                <a href="#recommendations">Recommendations</a> |
+                                <a href="#conclusion">Conclusion</a>
+                            </div>
+                        </div>
+
+                        <div class="project-section" id="overview">
+                            <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Overview</div>
+                            <p style="text-align: justify;">In the DeFi, maximizing capital efficiency and optimizing yield have always been core challenges faced by investors. Pendle, as a pioneering platform focused on yield-splitting technology, has successfully introduced an innovative tokenization mechanism that separates yield-generating assets into two independently tradable components: principal and yield. This brings unprecedented liquidity and flexibility to the market.</p>
+                            <p style="text-align: justify;">The following analysis explores the market background, examines Pendle's innovative technology and market performance, addresses recent challenges, and provides recommendations for future development from a product perspective.</p>
+                        </div>
+
+                        <div class="project-section" id="background">
+                            <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Background Analysis - Pain Points in the DeFi Yield Market</div>
+                            <p style="text-align: justify;">In the DeFi ecosystem, yield-bearing assets (such as liquidity provider tokens, staked assets, etc.) face the following core challenges:</p>
+                            
+                            <div class="project-subsection">
+                                <div class="project-subsection-title">Insufficient Liquidity and Capital Efficiency Bottleneck</div>
+                                <p style="text-align: justify;">Yield-generating assets typically impose lock-up periods ranging from 2 to 6 months. While this mechanism maintains protocol stability and predictability, it also restricts investors' capital mobility, making it difficult for them to promptly adjust strategies or withdraw assets in response to market changes. Due to these lock-up constraints, investors lack flexibility in managing their yield portions, which not only reduces capital utilization efficiency but also weakens portfolio liquidity and risk response capabilities, ultimately resulting in opportunity cost losses.</p>
+                            </div>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title">Yield Volatility</div>
+                                <p style="text-align: justify;">The yield of DeFi protocols is determined by various factors, such as market demand, token prices, liquidity mining rewards, and other contributing elements. Staking products typically offer an expected annualized yield of 3-30%, but the cryptocurrency market's 24/7 operation, combined with its high sensitivity to regulatory changes, security vulnerabilities, and external events, causes actual returns to fluctuate far more than traditional financial products. This volatility hinders the feasibility of long-term financial planning.</p>
+                            </div>
+                        </div>
+
+                        <div class="project-section" id="tech">
+                            <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Pendle's Innovative Technology</div>
+                            <p style="text-align: justify;">Pendle addresses these pain points through a groundbreaking yield-tokenization mechanism:</p>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title">Core Technical Framework</div>
+                                <p style="text-align: justify;">Pendle implements the Standardized Yield (SY) tokenization layer through the ERC-5115 standard, standardizing various yield-bearing assets (such as stETH) into SY tokens. Through a yield separation mechanism, these SY tokens are further divided into PT (Principal Token) and YT (Yield Token):</p>
+                                <ul class="recommendation-list">
+                                    <li>Principal Token (PT): Represents the principal portion of the underlying asset.</li>
+                                    <li>Yield Token (YT): Represents the future yield that the asset will generate.</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title">Specialized Automated Market Maker (AMM)</div>
+                                <p style="text-align: justify;">Pendle has designed a highly efficient AMM mechanism tailored for trading yield-bearing assets, ensuring high liquidity for PT and YT. This mechanism allows investors to standardize yield-bearing assets and split them into independent tradable units, enabling flexible transfer of principal or yield portions of assets based on real-time market demands, significantly improving capital utilization efficiency:</p>
+                                <div class="feature-list">
+                                    <div class="feature-item">
+                                        <strong>For Fixed Income Investors</strong>
+                                        <p style="text-align: justify;">They can purchase PT (Principal Tokens) to obtain stable and predictable returns, reducing their yield volatility. This eliminates the need to bear the uncertainty caused by market fluctuations, making PT suitable for risk-averse investors.</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <strong>For Yield Speculators</strong>
+                                        <p style="text-align: justify;">They can purchase YT (Yield Tokens) to strategically bet on future yield rate trends. YT can be flexibly traded based on market demand, greatly enhancing asset liquidity. This makes it suitable for traders seeking higher risk-return profiles.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-section" id="market">
+                            <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Pendle's Market Performance</div>
+                            <p style="text-align: justify;">Since its inception in 2022, Pendle has demonstrated impressive market adaptability and growth potential:</p>
+                            <ul class="recommendation-list">
+                                <li>In 2023, Pendle received strategic investment from Binance, solidifying its leadership in the industry.</li>
+                                <li>In June 2024, its total value locked (TVL) surpassed the $6 billion milestone.</li>
+                                <li>At the end of 2024, TVL rebounded rapidly, recovering from $2 billion to $4 billion in just two months.</li>
+                                <li>The TVL (Total Value Locked) remained stable at 4-5 billion from late 2024 to February 2025.</li>
+                                <li>Pendle currently ranks 6th among DeFi projects.</li>
+                            </ul>
+                            <p style="text-align: justify;">Pendle's rapid recovery and steady growth validate its innovative model and the market demand for its solutions.</p>
+                            <div class="figure-grid" style="display: flex; justify-content: center;">
+                                <div class="figure-item" style="max-width: 800px; width: 100%;">
+                                    <div class="figure-image" style="background-image: url('pendle_figure1.jpg')"></div>
+                                    <div class="figure-caption">Figure 1: Pendle's TVL</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-section" id="challenges">
+                            <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Pendle's Challenges</div>
+                            <p style="text-align: justify;">However, as a DeFi protocol dedicated to yield tokenization, Pendle has demonstrated innovation and market potential in its development, but still faces multiple challenges in terms of scalability and stability, as described below:</p>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title">Excessive Dependence on Ethereum Ecosystem</div>
+                                <p style="text-align: justify;">Pendle protocol has over 90% of its total value locked and volume concentrated within the Ethereum ecosystem (as shown in Figures 2 and 3), creating a significant risk concentration through high dependence on a single blockchain. Furthermore, this centralization not only limits the protocol's revenue diversification and market expansion but also results in Pendle's financial performance being highly correlated with Ethereum network health.</p>
+                                <p style="text-align: justify;">In the rapidly iterative DeFi environment, this dependency on a single ecosystem constrains Pendle's ability to develop effective cross-chain strategies while reducing its potential to attract a diversified user base. As DeFi market competition intensifies and innovation accelerates, failure to mitigate this concentrated dependency will pose substantial challenges to Pendle's long-term sustainable development and competitive market position.</p>
+                                <div class="figure-grid">
+                                    <div class="figure-item">
+                                        <div class="figure-image" style="background-image: url('pendle_figure2.png')"></div>
+                                        <div class="figure-caption">Figure 2: Pendle's TVL distribution</div>
+                                    </div>
+                                    <div class="figure-item">
+                                        <div class="figure-image" style="background-image: url('pendle_figure3.png')"></div>
+                                        <div class="figure-caption">Figure 3: Pendle's volume by chain</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title">Revenue Correlation with Ethereum Price</div>
+                                <p style="text-align: justify;">Data shows that Pendle protocol's performance exhibits a clear correlation with Ethereum's market price. Throughout 2024 (as shown in Figures 4 and 5), Pendle's fees and revenue reached significant peaks in April, June, and December, closely aligning with Ethereum's price uptrends in March, June, and December.</p>
+                                <p style="text-align: justify;">This correlation reflects fundamental dynamics in the cryptocurrency market. When Ethereum prices rise, market participants' confidence and activity levels increase accordingly, leading to significantly higher transaction volumes and liquidity provision on the Pendle platform, thereby driving fee income growth. Conversely, during Ethereum price downturns, market sentiment becomes more conservative, user participation decreases, and trading activity declines, directly affecting Pendle's revenue performance and demonstrating the tight connection between its business health and underlying blockchain asset price trends.</p>
+                                <div class="figure-grid">
+                                    <div class="figure-item">
+                                        <div class="figure-image" style="background-image: url('pendle_figure4.jpg')"></div>
+                                        <div class="figure-caption">Figure 4: Pendle's revenue and fees bar chart</div>
+                                    </div>
+                                    <div class="figure-item">
+                                        <div class="figure-image" style="background-image: url('pendle_figure5.jpg')"></div>
+                                        <div class="figure-caption">Figure 5: Ethereum price trends</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title">High Yield Volatility</div>
+                                <p style="text-align: justify;">As a pioneer protocol in yield tokenization, Pendle's product structure is based on clear expiration mechanisms. This core characteristic creates a strong correlation between protocol revenue and product expiration cycles. Near expiration dates, investors need to reconfigure their portfolios, including closing positions, rolling positions, or adjusting strategies, leading to significantly concentrated trading activity at specific time points, which in turn triggers cyclical fluctuations in trading volume and fee revenue.</p>
+                                <p style="text-align: justify;">For example, in June 2024, as high-volume products like eETH, ezETH, and pufETH expired on June 27, protocol revenue and fees peaked, breaking the $5 million threshold, but subsequently experienced a sharp decline (as shown in Figure 6).</p>
+                                <p style="text-align: justify;">This concentrated trading behavior triggered by option expirations not only creates revenue peaks but also compresses trading activity in non-expiration months, forming distinct revenue fluctuation cycles or an unstable up-and-down revenue trend. The expiration-based product structure gives the protocol's revenue strong seasonal characteristics, increasing the complexity of financial forecasting, especially during critical development stages requiring stable cash flow to support operations and technical innovation, creating structural challenges for the protocol's long-term sustainable development.</p>
+                                <div class="figure-grid" style="display: flex; justify-content: center;">
+                                    <div class="figure-item" style="max-width: 800px; width: 100%;">
+                                        <div class="figure-image" style="background-image: url('pendle_figure6.jpg')"></div>
+                                        <div class="figure-caption">Figure 6: Pendle's revenue and fees peaks</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title">Active User Growth Bottleneck</div>
+                                <p style="text-align: justify;">Although Pendle continues to attract over 10,000 new wallet addresses monthly, the number of active users remains stagnant between 40,000 and 50,000, highlighting the challenge of user retention.</p>
+                                <p style="text-align: justify;">Due to Pendle's innovative design, the complexity of its products and the technical knowledge threshold form barriers preventing new users from participating long-term. Within the protocol, there exists an implicit requirement for users to possess professional knowledge of derivatives trading, liquidity provision, and yield mechanisms, creating obstacles for newcomers to the crypto space. This limits the conversion process from initial trial to deep participation, and suppresses the possibility of users transforming from initial interest to long-term loyal users.</p>
+                                <div class="figure-grid" style="display: flex; justify-content: center;">
+                                    <div class="figure-item" style="max-width: 800px; width: 100%;">
+                                        <div class="figure-image" style="background-image: url('pendle_figure7.jpg')"></div>
+                                        <div class="figure-caption">Figure 7: Pendle's new and active addresses bar chart</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-section" id="recommendations">
+                            <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Recommendations and Expected Outcomes</div>
+                            <p style="text-align: justify;">To address the excessive dependence on the Ethereum ecosystem, high yield volatility structural challenges, and active user growth bottlenecks, Pendle can first restructure its products to reduce reliance on a single ecosystem and enhance yield stability. Second, by deeply integrating cross-category product diversification to increase yields, creating a flexible yield portfolio that can adapt to market complexities. Finally, with the goal of retaining more active users, it is recommended that Pendle provide immersive educational resources to lower the entry barrier for newcomers, enabling them to gain a deeper understanding of the products and convert into active users.</p>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title" style="color: var(--primary); font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; border-left: 3px solid var(--primary); padding-left: 0.8rem;">Product Restructuring</div>
+                                <div class="feature-list">
+                                    <div class="feature-item">
+                                        <strong>Time-Gradient Product Design</strong>
+                                        <p style="text-align: justify;">Enhance product diversification through cross-chain deployment, creating products with weekly, monthly, and quarterly maturity options to provide customized investment choices for users with different preferences. Weekly maturity products can meet short-term trading needs with lower entry barriers. Monthly maturity products target mid-term strategy users, balancing product liquidity and yield. Quarterly products attract long-term strategic investors, building a dynamic and flexible yield ecosystem.</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <strong>Automated Yield Reinvestment Mechanism</strong>
+                                        <p style="text-align: justify;">Develop smart contracts and user-preset reinvestment preferences to achieve automated, intelligent yield management. The system can automatically transfer matured yields into new products with investor-preset matching terms, dynamically adjusting reinvestment strategies based on real-time market conditions while offering flexible options for partial withdrawals or hybrid reinvestment approaches.</p>
+                                    </div>
+                                </div>
+                                <div class="project-subsection">
+                                    <div class="project-subsection-title" style="color: var(--secondary); font-size: 1.1rem; font-weight: 500; margin-bottom: 1rem; border-left: 2px solid var(--secondary); padding-left: 0.8rem;">Expected Outcomes</div>
+                                    <div class="feature-list">
+                                        <div class="feature-item">
+                                            <strong>Reduced Dependence on a Single Blockchain</strong>
+                                            <p style="text-align: justify;">Through time-gradient product design and cross-chain deployment, Pendle can expand across multiple blockchain ecosystems, reducing over-reliance on Ethereum and diversifying risk. This prevents issues or price volatility on a single blockchain from severely impacting the overall protocol.</p>
+                                        </div>
+                                        <div class="feature-item">
+                                            <strong>Lower Yield Volatility</strong>
+                                            <p style="text-align: justify;">Cross-chain, multi-cycle design and reinvestment mechanisms smooth yield distribution, lower investment barriers, attract different types of investors, and reduce concentrated trading risks around single maturity dates.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title" style="color: var(--primary); font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; border-left: 3px solid var(--primary); padding-left: 0.8rem;">Product Diversification</div>
+                                <div class="feature-list">
+                                    <div class="feature-item">
+                                        <strong>RWA Integration Expansion</strong>
+                                        <p style="text-align: justify;">Pendle, through its innovative yield tokenization mechanism, demonstrates technical and conceptual resonance with the rapidly growing Real World Asset (RWA) tokenization sector : packaging complex financial yields into simple fixed-income products with low barriers to entry, making them accessible to the public, individuals, institutions, and every entity.</p>
+                                        <p style="text-align: justify;">Although Pendle has already established partnerships with certain RWA projects, the explosive growth of the RWA market in 2024-2025 provides unprecedented strategic opportunities. As of February 2025, the total market value of RWA tokens has reached $61.33 billion, clearly demonstrating the importance and growth potential of this sector within the cryptocurrency ecosystem.</p>
+                                        <p style="text-align: justify;">Pendle can leverage this market trend by actively expanding partnerships with more diverse RWA projects, increasing RWA liquidity, developing specialized yield tokenization models for different types of RWAs, and promoting deep integration between traditional finance and decentralized finance, becoming an important bridge and driving force between the two.</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <strong>NFTFi Expansion</strong>
+                                        <p style="text-align: justify;">Currently, the total value locked (TVL) in the NFT market is approximately $60 million. Although this represents a decline from the $260 million peak in 2024, the high prices of landmark NFT works (such as $91.8 million for "The Merge" and $69.3 million for "Everydays – The First 5000 Days") indicate strong purchasing interest in collectible NFTs. Players are willing to pay premium prices for collectibles, suggesting that the NFT sector still has development potential that cannot be ignored. With its innovative coupon separation technology, Pendle can separate NFT purchase costs from future yields, not only providing new avenues for trading and managing future NFT yields but also significantly enhancing NFT asset liquidity and utility, bringing more possibilities to the market.</p>
+                                    </div>
+                                </div>
+                                <div class="project-subsection">
+                                    <div class="project-subsection-title" style="color: var(--secondary); font-size: 1.1rem; font-weight: 500; margin-bottom: 1rem; border-left: 2px solid var(--secondary); padding-left: 0.8rem;">Expected Outcomes</div>
+                                    <div class="feature-list">
+                                        <div class="feature-item">
+                                            <strong>Market Expansion and New Investor Attraction</strong>
+                                            <p style="text-align: justify;">Pendle's technological innovations not only provide new opportunities for enhancing liquidity and yield management in the rapidly growing RWA market but can also attract more investors seeking stable returns, including both individual investors and institutional buyers, further consolidating its market position.</p>
+                                            <p style="text-align: justify;">The mechanisms for separate trading of future NFT yields and fractional investment allow NFT holders to release and monetize future asset yields in advance, while supporting fractional investment in high-value NFTs, effectively lowering participation thresholds and providing a unique entry point into the NFT market for more participants (including small-fund investors), expanding market coverage.</p>
+                                        </div>
+                                        <div class="feature-item">
+                                            <strong>Yield Structure Optimization and Ecosystem Win-Win</strong>
+                                            <p style="text-align: justify;">With technology at its core, the Pendle platform strengthens its own yield structure through cross-sector applications in RWA and NFT domains, further enhancing stable revenue sources for the platform (such as transaction fees). Simultaneously, this innovative mechanism creates value for multiple participants within the ecosystem, promoting deep integration between traditional finance and DeFi, achieving a win-win situation for the platform, investors, and ecosystem partners.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-subsection">
+                                <div class="project-subsection-title" style="color: var(--primary); font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; border-left: 3px solid var(--primary); padding-left: 0.8rem;">Immersive Teaching</div>
+                                <p style="text-align: justify;">Despite Pendle providing rich educational resources like Pendle Academy, Docs, and Learn In-App text-based tutorials, research shows that users retain 95% of information through videos compared to only 10% through text. Based on this research, Pendle can transform most of its text-based educational paradigms into immersive, scenario-based video operation guides. By producing detailed, step-by-step operational videos, Pendle can significantly lower technical barriers and provide intuitive, easy-to-understand learning paths for cryptocurrency newcomers, fundamentally optimizing users' first-time experience and long-term engagement willingness.</p>
+                                <div class="project-subsection">
+                                    <div class="project-subsection-title" style="color: var(--secondary); font-size: 1.1rem; font-weight: 500; margin-bottom: 1rem; border-left: 2px solid var(--secondary); padding-left: 0.8rem;">Expected Outcomes</div>
+                                    <p style="text-align: justify;">Designing intuitive tutorial videos can simplify operational processes and reduce onboarding anxiety for new users. This not only helps reduce user churn but also provides a more friendly guidance experience, improving newcomer retention rates and promoting platform activity, helping over 10,000 new users monthly transition more smoothly into long-term active users.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-section" id="conclusion">
+                            <div class="project-section-title" style="color: var(--primary); font-size: 1.8rem; margin: 2rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid var(--secondary);">Conclusion</div>
+                            <p style="text-align: justify;">Pendle has successfully addressed core pain points in the DeFi market through its innovative yield separation technology, solving issues of liquidity shortage, yield volatility, and low capital efficiency. Its market performance validates the effectiveness and demand for Pendle's solutions, ranking sixth in the DeFi sector, which demonstrates the success and market recognition of its product model.</p>
+                            <p style="text-align: justify;">However, Pendle still faces several challenges in its ongoing development, including high dependence on the Ethereum ecosystem and revenue correlation with Ethereum price volatility. These factors increase yield uncertainty and limit ecosystem diversification.</p>
+                            <p style="text-align: justify;">To address these challenges and achieve long-term stable growth, Pendle should develop a more comprehensive cross-chain integration strategy to diversify its ecosystem dependencies. Additionally, designing staggered product maturity cycles can mitigate cyclical yield fluctuations, reducing transaction concentration caused by fixed maturity dates and resulting in smoother protocol revenue.</p>
+                            <p style="text-align: justify;">Furthermore, it is recommended to diversify revenue sources by exploring new solutions with RWA or NFTFi to provide alternative cash flows. Finally, to overcome user growth bottlenecks and improve retention rates, Pendle can utilize more intuitive educational resources (such as video tutorials) to convey product value to new users, thereby increasing engagement and activity.</p>
+                            <p style="text-align: justify;">Through these strategies, Pendle can build a more robust operational model, further consolidate its leadership in the DeFi yield tokenization space, and establish a solid foundation for achieving long-term sustainable growth.</p>
+                            <p style="color: var(--gray); font-size: 0.8rem; margin-top: 2rem; font-style: italic;">Note: High-volume products like eETH, ezETH, and pufETH expired on June 27. This information comes from https://zombit.info/pendle-hit-with-3bn-drawdown-as-restaking-airdrops-fade/</p>
                         </div>
                     </div>
                 `;
